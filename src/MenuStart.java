@@ -26,7 +26,7 @@ public class MenuStart {
                 System.out.println("Invalid selection");
                 continue;
             }
-            if (option != 1 && option != 2 && option != 3 && option != 4) {
+            if (option == 1 || option == 2 || option == 3 || option == 4) {
                 System.out.println("You selected option: " + option);
                 isSet = true;
             } else {
