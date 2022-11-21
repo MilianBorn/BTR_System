@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class Menu {
+public class MenuStart {
 
-    public static int MainMenu() {
+    public static int printMenu() {
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
         System.out.println("=====================================");
@@ -14,29 +14,25 @@ public class Menu {
         System.out.println("|                                   |");
         System.out.println("=====================================");
 
-        int option;
-        do {
-            Scanner getInput = new Scanner(System.in);
+        int option = -1;
+        boolean isSet = false;
+        Scanner getInput = new Scanner(System.in);
+
+        while (!isSet) {
             System.out.print("Select option: ");
-            boolean isSet = false;
-            while (!isSet) {
-                try {
-                    option = Integer.parseInt(getInput.nextLine());
-                } catch (NumberFormatException) {
-                    System.out.println("Invalid option selected");
-                }
-            }
             try {
                 option = Integer.parseInt(getInput.nextLine());
-            } catch (NumberFormatException) {
-                System.out.println("Invalid option selected");
+            } catch (NumberFormatException nfEx) {
+                System.out.println("Invalid selection");
+                continue;
             }
-                option = Integer.parseInt(getInput.nextLine());
             if (option != 1 && option != 2 && option != 3 && option != 4) {
-                System.out.println("Invalid option selected");
+                System.out.println("You selected option: " + option);
+                isSet = true;
+            } else {
+                System.out.println("Invalid selection");
             }
-        } while (option != 1 && option != 2 && option != 3 && option != 4);
-        System.out.println("You selected option: " + option);
+        }
         return option;
     }
 }
