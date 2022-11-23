@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MenuStart {
+public class startMenu {
 
     public static int printMenu() {
         System.out.println("=====================================");
