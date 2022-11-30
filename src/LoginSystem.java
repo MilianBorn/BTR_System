@@ -5,10 +5,12 @@ public class LoginSystem {
     public static void printStartMenu() {
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
+        System.out.println("|   -----------------------------   |");
+        System.out.println("|             Main Menu             |");
         System.out.println("=====================================");
         System.out.println("| Options:                          |");
-        System.out.println("|            1. Customer login      |");
-        System.out.println("|            2. Vendor login        |");
+        System.out.println("|            1. Customer platform   |");
+        System.out.println("|            2. Vendor platform     |");
         System.out.println("|            3. Exit                |");
         System.out.println("|                                   |");
         System.out.println("=====================================");
@@ -18,12 +20,25 @@ public class LoginSystem {
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
         System.out.println("|   -----------------------------   |");
-        System.out.println("|          Customer Portal          |");
+        System.out.println("|         Customer Platform         |");
         System.out.println("=====================================");
         System.out.println("| Options:                          |");
         System.out.println("|            1. Login               |");
         System.out.println("|            2. Sign up             |");
-        System.out.println("|            3. Main menu           |");
+        System.out.println("|            3. Back                |");
+        System.out.println("|                                   |");
+        System.out.println("=====================================");
+    }
+
+    public static void printVendorLogin() {
+        System.out.println("=====================================");
+        System.out.println("|   Bus Ticket Reservation System   |");
+        System.out.println("|   -----------------------------   |");
+        System.out.println("|          Vendor Platform          |");
+        System.out.println("=====================================");
+        System.out.println("| Options:                          |");
+        System.out.println("|            1. Login               |");
+        System.out.println("|            2. Back                |");
         System.out.println("|                                   |");
         System.out.println("=====================================");
     }
