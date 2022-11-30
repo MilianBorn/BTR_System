@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        int action = startMenu.printMenu();
+        LoginSystem.printStartMenu();
+        int action = LoginSystem.getOption();
         System.out.println("Success: user selected valid option " + action + " in the start menu");
         }
 }
