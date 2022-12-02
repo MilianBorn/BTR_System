@@ -1,3 +1,5 @@
+package Menus;
+
 public class VendorLoginMenu {
     public static int length = 2;
     public static void printMenu() {

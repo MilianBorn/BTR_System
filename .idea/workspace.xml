@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Adding login system pages">
-      <change afterPath="$PROJECT_DIR$/src/CustomerLoginMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StartMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VendorLoginMenu.java" afterDir="false" />
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Added a couple of minutes">
+      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomerLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/CustomerLoginMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VendorLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/VendorLoginMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2GaW9FZRVFEJnjK41DrxOAfvkdD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -137,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669808251667</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added a couple of minutes">
+      <created>1669991148578</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669991148578</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +167,7 @@
     <MESSAGE value="Added start menu" />
     <MESSAGE value="Debugging start menu" />
     <MESSAGE value="Adding login system pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding login system pages" />
+    <MESSAGE value="Added a couple of minutes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a couple of minutes" />
   </component>
 </project>
