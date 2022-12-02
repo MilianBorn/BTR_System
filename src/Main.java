@@ -19,10 +19,8 @@ public class Main {
                 case 0:
                     StartMenu.printMenu();
                     option = MenuManager.getOption(StartMenu.length);
-                    System.out.println(option);
                     if (option == 1) {
                         menuNr = 1; // Customer Login System
-                        System.out.println(menuNr);
                     } else if (option == 2) {
                         menuNr = 2; // Vendor Login System
                     } else {
