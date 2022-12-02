@@ -20,12 +20,12 @@ public class UserManager {
         customer.email = getInput.nextLine();
 
         // set up username
-        System.out.println("Username: ");
+        System.out.print("Username: ");
         customer.usrname = getInput.nextLine();
         // ToDo: insert check for duplicated usernames (username must be unique)
 
         // set up password
-        System.out.println("Password: ");
+        System.out.print("Password: ");
         customer.password = getInput.nextLine();
 
         // append to user list
