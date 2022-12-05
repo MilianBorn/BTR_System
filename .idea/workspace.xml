@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Added a couple of features">
-      <change afterPath="$PROJECT_DIR$/src/Menus/NewUserProfileMenu.java" afterDir="false" />
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Fixed some formatting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/MenuManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peaces/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/UserManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670000364930</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added customer registration">
+      <created>1670255600366</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670255600366</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed some formatting">
+      <created>1670256089804</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670256089804</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +199,8 @@
     <MESSAGE value="Adding login system pages" />
     <MESSAGE value="Added a couple of minutes" />
     <MESSAGE value="Added a couple of features" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a couple of features" />
+    <MESSAGE value="Added customer registration" />
+    <MESSAGE value="Fixed some formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some formatting" />
   </component>
 </project>
