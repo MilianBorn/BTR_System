@@ -1,6 +1,6 @@
 import Menus.NewUserProfileMenu;
 import Systems.MenuManager;
-import Systems.UserManager;
+import Systems.UserRegistration;
 import Menus.CustomerLoginMenu;
 import Menus.StartMenu;
 import Menus.VendorLoginMenu;
@@ -14,7 +14,7 @@ public class Main {
         int option; // reflects the selected option by the user in each menu
 
         // initiate user list (ArrayList)
-        UserManager UserMgmt = new UserManager(); // create an instance of the class UserManager (contains the user array list)
+        UserRegistration UserMgmt = new UserRegistration(); // create an instance of the class UserManager (contains the user array list)
 
         // main program
         boolean run = true; // while run = true the program keeps running, otherwise while loop will be exited

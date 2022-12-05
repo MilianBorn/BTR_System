@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Added some comments to the user class">
-      <change beforePath="$PROJECT_DIR$/src/Systems/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/MenuManager.java" afterDir="false" />
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Added some comments to the MenuManager">
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/NewUserProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/NewUserProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Systems/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/UserRegistration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670262373755</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added some comments to the MenuManager">
+      <created>1670263484552</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670263484552</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,6 +233,7 @@
     <MESSAGE value="Added some comments to the main class" />
     <MESSAGE value="Added some comments to the menus" />
     <MESSAGE value="Added some comments to the user class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some comments to the user class" />
+    <MESSAGE value="Added some comments to the MenuManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some comments to the MenuManager" />
   </component>
 </project>
