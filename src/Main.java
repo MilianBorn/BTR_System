@@ -14,7 +14,7 @@ public class Main {
         int option; // reflects the selected option by the user in each menu
 
         // initiate user list (ArrayList)
-        UserRegistration UserMgmt = new UserRegistration(); // create an instance of the class UserManager (contains the user array list)
+        UserRegistration UserMgmt = new UserRegistration(); // create an instance of the class UserRegistration (contains the user array list)
 
         // main program
         boolean run = true; // while run = true the program keeps running, otherwise while loop will be exited
@@ -62,7 +62,7 @@ public class Main {
                 // New User Profile Menu
                 case 2 -> {
                     // user list can't be empty when trying to access the last element because index will be -1 (causes an exception)
-                    if (!UserMgmt.UserList.isEmpty()) { // checks the user list is not empty
+                    if (!UserMgmt.UserList.isEmpty()) { // checks if @the user list is not empty
                         User newUser = UserMgmt.UserList.get(UserMgmt.UserList.size() - 1); // access last element in user list and save it as newUser
                         NewUserProfileMenu.printMenu(newUser); // print New User Profile Menu
                         option = MenuManager.getOption(NewUserProfileMenu.length); // gets option from user and sets option variable accordingly
