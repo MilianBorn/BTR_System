@@ -34,7 +34,7 @@ public class UserRegistration { // this class is used to for any logic needed to
 
             // check if username is unique
             for (User user : UserList) { // repeat for each User in UserList
-                if (newUser.username.equals(user.username)) { // check is new username equals username from UserList
+                if (newUser.username.equals(user.username)) { // check if new username equals username from UserList
                     System.out.println("Username already exists"); // inform user that username is not unique
                     System.out.println(); // empty line for formatting
                     isUnique = false; // assumption = false, username is not unique
