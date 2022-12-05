@@ -5,13 +5,13 @@ import Peaces.User;
 import java.util.*;
 
 public class UserManager {
-    public ArrayList<Peaces.User> UserList = new ArrayList<>();
+    public ArrayList<User> UserList = new ArrayList<>();
 
     public void register() {
         // create scanner object for user input
         Scanner getInput = new Scanner(System.in);
         // create user object
-        Peaces.User customer = new Peaces.User();
+        User customer = new User();
 
         // get personal user information
         System.out.print("First name: ");
@@ -25,12 +25,12 @@ public class UserManager {
 
         // set username and check for duplicates in UserList (username must be unique)
         while (true) {
-            Boolean isUnique = true;
+            boolean isUnique = true;
             // set up username
             System.out.print("Username: ");
             customer.username = getInput.nextLine();
-            for (int i = 0; i < UserList.size(); i++) {
-                if (customer.username.equals(UserList.get(i).username)) {
+            for (User user : UserList) {
+                if (customer.username.equals(user.username)) {
                     System.out.println("Username already exists");
                     System.out.println();
                     isUnique = false;
@@ -44,6 +44,8 @@ public class UserManager {
         // set up password
         System.out.print("Password: ");
         customer.password = getInput.nextLine();
+        System.out.println();
+        System.out.println();
 
         // append to user list
         UserList.add(customer);
