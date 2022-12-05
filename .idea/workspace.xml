@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Fixed some formatting">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Added some comments to the menus">
+      <change beforePath="$PROJECT_DIR$/src/Peaces/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peaces/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670256089804</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added some comments to the main class">
+      <created>1670261836829</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1670261836829</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added some comments to the menus">
+      <created>1670262078523</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1670262078523</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +214,8 @@
     <MESSAGE value="Added a couple of features" />
     <MESSAGE value="Added customer registration" />
     <MESSAGE value="Fixed some formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some formatting" />
+    <MESSAGE value="Added some comments to the main class" />
+    <MESSAGE value="Added some comments to the menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some comments to the menus" />
   </component>
 </project>
