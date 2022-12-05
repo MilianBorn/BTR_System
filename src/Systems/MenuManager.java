@@ -1,3 +1,5 @@
+package Systems;
+
 import java.util.Scanner;
 
 public class MenuManager {
@@ -16,7 +18,7 @@ public class MenuManager {
             }
             for (int i = 0; i < x; i++) {
                 if (option == i + 1) {
-                    System.out.println("Option " + option + " selected");
+                    // System.out.println("Option " + option + " selected");
                     System.out.println();
                     System.out.println();
                     isSet = true;
