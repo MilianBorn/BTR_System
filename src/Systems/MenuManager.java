@@ -2,7 +2,7 @@ package Systems;
 
 import java.util.Scanner;
 
-public class MenuManager { // this class is used to handle any needed to handle the menus
+public class MenuManager { // this class is used to handle any logic needed to handle the menus
     public static int getOption(int x) { // get an option from the user and return it (takes the length of the menu as an input)
 
         Scanner getInput = new Scanner(System.in); // creates an instance of class scanner used to get input from user
