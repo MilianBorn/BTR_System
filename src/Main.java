@@ -26,7 +26,6 @@ public class Main {
                 // case 1 = Customer Login Menu
                 // case 2 = New Customer Profile Menu
                 // case 3 = Vendor Login Menu
-                // ToDo: determine all required menus and assign them a menuNr (use meaningful system)
 
                 // Start Menu
                 case 0 -> {
@@ -53,7 +52,7 @@ public class Main {
                         UserMgmt.register(); // gets profile details from user and saves new user in the user list
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
-                        // ToDo: User Login System
+                        // ToDo: Max -> User Login System
                     } else {
                         menuNr = 0; // go to Start Menu
                     }
@@ -73,7 +72,7 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // Todo: Customer Main Menu;
+                        // Todo: Varsha -> Customer Main Menu
                     } else if (option == 2) {
                         UserMgmt.register(); // gets profile details from user and saves new user in the user list // menuNr does not need to be changed
                     } else {
@@ -88,7 +87,7 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // ToDo: User Login System;
+                        // ToDo: Max -> User Login System
                     } else {
                         menuNr = 0; // go to Start Menu
                     }

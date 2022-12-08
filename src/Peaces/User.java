@@ -8,5 +8,4 @@ public class User { // this class represents a user and is used to initialise us
     public String username;
     public String password;
 
-    // ToDo: add all elements relevant to the user class (e.g. array list holding the tickets)
 }
