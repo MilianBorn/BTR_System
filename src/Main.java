@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         // global variables
-        User currentUser = null; // this is the current user profile
+        User currentUser = null; // this is the current user profile (will be set by customer login)
         int menuNr = 0; // used to navigate between menus and systems in the main switch case statement
         int option; // reflects the selected option by the user in each menu
 
