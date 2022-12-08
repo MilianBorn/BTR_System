@@ -1,4 +1,6 @@
 import Menus.NewUserProfileMenu;
+import Systems.LoginSystem.LoginManager;
+import Systems.LoginSystem.LoginResult;
 import Systems.MenuManager;
 import Systems.UserRegistration;
 import Menus.CustomerLoginMenu;
@@ -10,6 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         // global variables
+        User currentUser = null; // this is the current user profile
         int menuNr = 0; // used to navigate between menus and systems in the main switch case statement
         int option; // reflects the selected option by the user in each menu
 
@@ -53,6 +56,11 @@ public class Main {
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
                         // ToDo: Max -> User Login System
+                        LoginResult result = LoginManager.login(UserMgmt.UserList, false);
+                        if (result.getUser() != null && result.validation()) {
+                            currentUser = result.getUser();
+                            // Todo: Varsha -> Customer Main Menu
+                        }
                     } else {
                         menuNr = 0; // go to Start Menu
                     }
@@ -87,7 +95,10 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // ToDo: Max -> User Login System
+                        LoginResult result = LoginManager.login(UserMgmt.UserList, true);
+                        if (result.validation()) {
+                            // ToDo: Gurjeet -> Vendor Main Menu
+                        }
                     } else {
                         menuNr = 0; // go to Start Menu
                     }
