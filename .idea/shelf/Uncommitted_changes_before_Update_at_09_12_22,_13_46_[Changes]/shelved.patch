@@ -1,0 +1,15 @@
+Index: src/Peaces/Test2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Peaces/Test2.java b/src/Peaces/Test2.java
+new file mode 100644
+--- /dev/null	(date 1670589998658)
++++ b/src/Peaces/Test2.java	(date 1670589998658)
+@@ -0,0 +1,5 @@
++package Peaces;
++
++public class Test2 {
++    // I'm a test 2 class
++}
