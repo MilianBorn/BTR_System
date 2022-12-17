@@ -1,0 +1,45 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,9 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Commit test">
++    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Redesign of NewUserProfileMenu">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Menus/NewUserProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/NewUserProfileMenu.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -328,7 +327,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1671280438090</updated>
+     </task>
+-    <option name="localTasksCounter" value="36" />
++    <task id="LOCAL-00036" summary="Redesign of NewUserProfileMenu">
++      <created>1671283074710</created>
++      <option name="number" value="00036" />
++      <option name="presentableId" value="LOCAL-00036" />
++      <option name="project" value="LOCAL" />
++      <updated>1671283074710</updated>
++    </task>
++    <option name="localTasksCounter" value="37" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -366,6 +372,7 @@
+     <MESSAGE value="comments" />
+     <MESSAGE value="Test PR" />
+     <MESSAGE value="Commit test" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Commit test" />
++    <MESSAGE value="Redesign of NewUserProfileMenu" />
++    <option name="LAST_COMMIT_MESSAGE" value="Redesign of NewUserProfileMenu" />
+   </component>
+ </project>
+\ No newline at end of file
