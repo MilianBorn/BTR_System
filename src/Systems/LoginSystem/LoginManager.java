@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoginManager {
-    // ToDo: Max -> write user login system
     // the user login system validates the user identity and sets the current user
     public static LoginResult login(ArrayList<User> UserList, boolean isAdmin) { // takes the user list as input and boolean that indicates user or admin login
 
@@ -41,7 +40,7 @@ public class LoginManager {
 
             if (!login) { // prompt error message
                 System.out.println("Incorrect username or password");
-                System.out.print("Tray again? [y/n]");
+                System.out.print("Try again? [y/n]");
                 String option = getInput.nextLine();
                 System.out.println();
 
