@@ -9,15 +9,15 @@ public class NewUserProfileMenu {
         System.out.println("|   -----------------------------   |");
         System.out.println("|         Customer Platform         |");
         System.out.println("=====================================");
-        System.out.println("| Your user profile:                |");
+        System.out.println("| New user profile:                 |");
         System.out.println("|–----------------------------------|");
-        System.out.printf("   First name:    %s\n", newUser.fname);     // print user profile details
-        System.out.printf("   Last name:     %s\n", newUser.lname);     // ToDo: Write the NewUserProfileMenu more elegant
-        System.out.printf("   Date of birth: %s\n", newUser.dob);
-        System.out.printf("   Email:         %s\n", newUser.email);
-        System.out.println();
-        System.out.printf("   Username:      %s\n", newUser.username);
-        System.out.printf("   Password:      %s\n", newUser.password);
+        System.out.printf("| First name:    %-19s|\n", newUser.fname);
+        System.out.printf("| Last name:     %-19s|\n", newUser.lname);
+        System.out.printf("| Date of birth: %-19s|\n", newUser.dob);
+        System.out.printf("| Email:         %-19s|\n", newUser.email);
+        System.out.println("|                                   |");
+        System.out.printf("| Username:      %-19s|\n", newUser.username);
+        System.out.printf("| Password:      %-19s|\n", newUser.password);
         System.out.println("|–----------------------------------|");
         System.out.println("| Options:                          |");
         System.out.println("|       1. Login with this account  |");

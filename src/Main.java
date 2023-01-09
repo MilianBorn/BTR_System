@@ -1,23 +1,26 @@
-import Menus.NewUserProfileMenu;
+import Menus.*;
+import Peaces.Bus;
+import Systems.BusManager;
 import Systems.LoginSystem.LoginManager;
 import Systems.LoginSystem.LoginResult;
 import Systems.MenuManager;
 import Systems.UserRegistration;
-import Menus.CustomerLoginMenu;
-import Menus.StartMenu;
-import Menus.VendorLoginMenu;
 import Peaces.User;
 
 public class Main {
 
     public static void main(String[] args) {
         // global variables
-        User currentUser = null; // this is the current user profile (will be set by customer login)
         int menuNr = 0; // used to navigate between menus and systems in the main switch case statement
         int option; // reflects the selected option by the user in each menu
+        User currentUser = null; // this is the current user profile (will be set by customer login)
+        User newUser = null;
+        Bus newBus = null;
+        Bus rmvBus = null;
 
-        // initiate user list (ArrayList)
-        UserRegistration UserMgmt = new UserRegistration(); // create an instance of the class UserRegistration (contains the user array list)
+        // initiate the array lists
+        UserRegistration userRegistration = new UserRegistration(); // create an instance of the class UserRegistration (contains the user array list)
+        BusManager busManager = new BusManager(); // create an instance of the class BusManager (contains the bus array list)
 
         // main program
         boolean run = true; // while run = true the program keeps running, otherwise while loop will be exited
@@ -29,6 +32,11 @@ public class Main {
                 // case 1 = Customer Login Menu
                 // case 2 = New Customer Profile Menu
                 // case 3 = Vendor Login Menu
+                // case 4 = Vendor Main Menu
+                // case 5 = Bus Management Menu
+                // case 6 = Bus Overview Menu
+                // case 7 = New Bus Menu
+                // case 8 = Deleted Bus Menu
 
                 // Start Menu
                 case 0 -> {
@@ -52,11 +60,10 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        UserMgmt.register(); // gets profile details from user and saves new user in the user list
+                        newUser = userRegistration.register(); // gets profile details from user and saves new user in the user list
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
-                        // ToDo: Max -> User Login System
-                        LoginResult result = LoginManager.login(UserMgmt.UserList, false);
+                        LoginResult result = LoginManager.login(userRegistration.UserList, false);
                         if (result.getUser() != null && result.validation()) {
                             currentUser = result.getUser();
                             // Todo: Varsha -> Customer Main Menu
@@ -68,21 +75,14 @@ public class Main {
 
                 // New User Profile Menu
                 case 2 -> {
-                    // user list can't be empty when trying to access the last element because index will be -1 (causes an exception)
-                    if (!UserMgmt.UserList.isEmpty()) { // checks if @the user list is not empty
-                        User newUser = UserMgmt.UserList.get(UserMgmt.UserList.size() - 1); // access last element in user list and save it as newUser
-                        NewUserProfileMenu.printMenu(newUser); // print New User Profile Menu
-                        option = MenuManager.getOption(NewUserProfileMenu.length); // gets option from user and sets option variable accordingly
-                    } else { // when user list is empty
-                        System.out.println("User list is empty"); // print error
-                        option = 3; // set hardcoded option in case that user list is empty
-                    }
+                    NewUserProfileMenu.printMenu(newUser); // print New User Profile Menu
+                    option = MenuManager.getOption(NewUserProfileMenu.length); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
                         // Todo: Varsha -> Customer Main Menu
                     } else if (option == 2) {
-                        UserMgmt.register(); // gets profile details from user and saves new user in the user list // menuNr does not need to be changed
+                        newUser = userRegistration.register(); //1 gets profile details from user and saves new user in the user list // menuNr does not need to be changed
                     } else {
                         menuNr = 1; // go to Customer Login Menu
                     }
@@ -95,12 +95,111 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        LoginResult result = LoginManager.login(UserMgmt.UserList, true);
+                        LoginResult result = LoginManager.login(userRegistration.UserList, true);
                         if (result.validation()) {
-                            // ToDo: Gurjeet -> Vendor Main Menu
+                            menuNr = 4;
                         }
                     } else {
                         menuNr = 0; // go to Start Menu
+                    }
+                }
+                // Vendor Main Menu
+                case 4 -> {
+                    VendorMainMenu.printMenu(); // prints the menu
+                    option = MenuManager.getOption(VendorMainMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        // ToDo: Route Management Menu
+                    } else if (option == 2){
+                        menuNr = 5; // go to Bus Management Menu
+                    } else if (option == 3){
+                        // ToDo: Print busses and routes
+                    } else if (option == 4){
+                        // ToDo: Print Transaction history
+                    } else if (option == 5){
+                        // ToDo: Print registered customers
+                    } else {
+                        menuNr = 0; // Go to start menu
+                    }
+                }
+                // Bus Management Menu
+                case 5 -> {
+                    BusManagementMenu.printMenu(); // prints the menu
+                    option = MenuManager.getOption(VendorMainMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        if (busManager.BusList.size() > 0) {
+                            menuNr = 6; // Go to Bus Overview Menu
+                        } else {
+                            System.out.println("No busses found!");
+                            System.out.println();
+                        }
+                    } else if (option == 2){
+                        newBus = busManager.addBus();
+                        menuNr = 7; // Go to New Bus Menu
+                    } else if (option == 3){
+                        if (busManager.BusList.size() > 0) {
+                            rmvBus = busManager.removeBus();
+                            if (rmvBus != null) {
+                                menuNr = 8; // Deleted Bus Menu
+                            }
+                        } else {
+                            System.out.println("No busses found!");
+                            System.out.println();
+                        }
+                    } else {
+                        menuNr = 4; // Go to Vendor Main Menu
+                    }
+                }
+                // Bus Overview Menu
+                case 6 -> {
+                    BusOverviewMenu.printMenu(busManager.BusList); // prints the menu
+                    option = MenuManager.getOption(BusOverviewMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        newBus = busManager.addBus();
+                        menuNr = 7; // Go to New Bus Menu
+                    } else if (option == 2){
+                        rmvBus = busManager.removeBus();
+                        menuNr = 8; // Go to Deleted Bus Menu
+                    } else {
+                        menuNr = 4; // Go to Vendor Main Menu
+                    }
+                }
+                // New Bus Menu
+                case 7 -> {
+                    NewBusMenu.printMenu(newBus); // prints the menu
+                    option = MenuManager.getOption(NewBusMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        newBus = busManager.addBus();
+                    } else {
+                        menuNr = 5; // Go to Bus Management Menu
+                    }
+                }
+                // Deleted Bus Menu
+                case 8 -> {
+                    DeletedBusMenu.printMenu(rmvBus); // prints the menu
+                    option = MenuManager.getOption(DeletedBusMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        if (busManager.BusList.size() > 0) {
+                            rmvBus = busManager.removeBus();
+                            if (rmvBus == null) {
+                                menuNr = 5; // Go to Bus Management Menu
+                            }
+                        } else {
+                            System.out.println("No busses found!");
+                            System.out.println();
+                            menuNr = 5; // Go to Bus Management Menu
+                        }
+                    } else {
+                        menuNr = 5; // Go to Bus Management Menu
                     }
                 }
             }
