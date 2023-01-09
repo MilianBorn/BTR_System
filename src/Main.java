@@ -164,7 +164,11 @@ public class Main {
                         menuNr = 7; // Go to New Bus Menu
                     } else if (option == 2){
                         rmvBus = busManager.removeBus();
-                        menuNr = 8; // Go to Deleted Bus Menu
+                        if (rmvBus != null) {
+                            menuNr = 8; // Go to Deleted Bus Menu
+                        } else {
+                            menuNr = 5; // Go to Bus Management Menu
+                        }
                     } else {
                         menuNr = 4; // Go to Vendor Main Menu
                     }
