@@ -7,11 +7,11 @@ import Menus.Customer.CustomerLoginMenu;
 import Menus.Customer.NewUserProfileMenu;
 import Menus.Vendor.VendorLoginMenu;
 import Menus.Vendor.VendorMainMenu;
-import Systems.BusManager;
+import Systems.*;
+import Systems.DataInjection.BusInjector;
+import Systems.DataInjection.UserInjector;
 import Systems.LoginSystem.LoginManager;
 import Systems.LoginSystem.LoginResult;
-import Systems.MenuManager;
-import Systems.UserRegistration;
 import Peaces.User;
 import Peaces.Bus;
 
@@ -29,6 +29,12 @@ public class Main {
         // initiate the array lists
         UserRegistration userRegistration = new UserRegistration(); // create an instance of the class UserRegistration (contains the user array list)
         BusManager busManager = new BusManager(); // create an instance of the class BusManager (contains the bus array list)
+
+        // inject data
+        UserInjector userInjector = new UserInjector();
+        userRegistration.UserList = userInjector.injectUser();
+        BusInjector busInjector = new BusInjector();
+        busManager.BusList = busInjector.injectBus();
 
         // main program
         boolean run = true; // while run = true the program keeps running, otherwise while loop will be exited
