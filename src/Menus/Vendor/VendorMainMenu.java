@@ -1,4 +1,4 @@
-package Menus;
+package Menus.Vendor;
 
 public class VendorMainMenu {
     public static int length = 6;   // reflects the number of available options

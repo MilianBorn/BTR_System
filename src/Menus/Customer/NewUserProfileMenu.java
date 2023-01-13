@@ -1,4 +1,4 @@
-package Menus;
+package Menus.Customer;
 import Peaces.User;
 
 public class NewUserProfileMenu {

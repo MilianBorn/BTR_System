@@ -2,6 +2,9 @@ package Systems;
 
 import Peaces.User;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class UserRegistration { // this class is used to for any logic needed to register users
@@ -18,8 +21,25 @@ public class UserRegistration { // this class is used to for any logic needed to
         newUser.fname = getInput.nextLine();
         System.out.print("Last name: ");
         newUser.lname = getInput.nextLine();
-        System.out.print("Date of birth: ");
-        newUser.dob = getInput.nextLine();
+
+        // set date of birth
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate newDate;
+        boolean isSet = false;
+        while (!isSet) {
+            System.out.print("Date of birth (dd.mm.yy): ");
+            String dateString = getInput.nextLine();
+            try {
+                newDate = LocalDate.parse(dateString, dateFormatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format");
+                continue;
+            }
+            newUser.dob = newDate;
+            isSet = true;
+        }
+
+        // set email
         System.out.print("Email: ");
         newUser.email = getInput.nextLine();
 

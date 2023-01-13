@@ -1,4 +1,4 @@
-package Menus;
+package Menus.Vendor;
 
 public class VendorLoginMenu {
     public static int length = 2; // reflects the number of available options (used for getOption method in MenuManager class)

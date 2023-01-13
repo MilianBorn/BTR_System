@@ -45,7 +45,7 @@ public class BusManager {
                 try {
                     newDate = LocalDate.parse(dateString, dateFormatter);
                 } catch (DateTimeParseException e) {
-                    System.out.println("invalid date format");
+                    System.out.println("Invalid date format");
                     continue;
                 }
                 newBus.date = newDate;
