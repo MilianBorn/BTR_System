@@ -30,7 +30,7 @@ public class Main {
         UserRegistration userRegistration = new UserRegistration(); // create an instance of the class UserRegistration (contains the user array list)
         BusManager busManager = new BusManager(); // create an instance of the class BusManager (contains the bus array list)
 
-        // inject data
+        // inject initial data
         UserInjector userInjector = new UserInjector();
         userRegistration.UserList = userInjector.injectUser();
         BusInjector busInjector = new BusInjector();
