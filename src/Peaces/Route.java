@@ -5,4 +5,8 @@ public class Route {
 
     // source, destination, optional ID
     // should we keep track of assigned busses? -> ArrayList for Bus objects
+
+    public String id;
+    public String source;
+    public String Destination;
 }
