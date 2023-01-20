@@ -12,7 +12,11 @@ public class Bus {
     private LocalTime time;                                  // time of departure
     private int capacity;                                    // capacity of the bus
     private float price;                                     // price of the bus
-    private List<User> PassengerList = new ArrayList<>();    // list of passengers
+    private List<User> PassengerList;                        // list of passengers
+
+    public Bus() {
+        PassengerList = new ArrayList<>();
+    }
 
     public void setId(String id) {
         this.id = id;

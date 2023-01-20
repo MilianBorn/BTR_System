@@ -1,7 +1,6 @@
 package Peaces;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.time.LocalDate;
 
 public class User { // this class represents a user and is used to initialise user instances
@@ -11,7 +10,11 @@ public class User { // this class represents a user and is used to initialise us
     private String email;
     private String username;
     private String password;
-    private List<Bus> TicketList = new ArrayList<>();    // list of booked tickets
+    private ArrayList<Bus> TicketList;    // list of booked tickets
+
+    public User() {
+        TicketList = new ArrayList<>();
+    }
 
     public void setFname(String fname) {
         this.fname = fname;
@@ -19,7 +22,7 @@ public class User { // this class represents a user and is used to initialise us
     public void setLname(String lname) {
         this.lname = lname;
     }
-    public void setDate(LocalDate dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
     public void setEmail(String email) {
@@ -35,22 +38,32 @@ public class User { // this class represents a user and is used to initialise us
         this.TicketList.add(ticket);
     }
 
-    public String getFname(String fname) {
+    public String getFname() {
         return this.fname;
     }
-    public String getLname(String lname) {
+    public String getLname() {
         return this.lname;
     }
-    public LocalDate getDate(LocalDate dob) {
+    public LocalDate getDob() {
         return this.dob;
     }
-    public String getEmail(String email) {
+    public String getEmail() {
         return this.email;
     }
-    public String getUsername(String username) {
+    public String getUsername() {
         return this.username;
     }
-    public String getPassword(String password) {
+    public String getPassword() {
         return this.password;
+    }
+
+    public ArrayList<Bus> getTicketList() {
+        return this.TicketList;
+    }
+    public void addTicket(Bus ticket) {
+        this.TicketList.add(ticket);
+    }
+    public void removeTicket(Bus ticket) {
+        this.TicketList.remove(ticket);
     }
 }

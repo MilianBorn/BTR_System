@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="new branch route management">
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="fix class design issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Bus/BusManagementMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/BusManagementMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menus/Bus/BusOverviewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/BusOverviewMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menus/Bus/DeletedBusMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/DeletedBusMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menus/Bus/NewBusMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/NewBusMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/CustomerLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Customer/CustomerLoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/NewUserProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Customer/NewUserProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/VendorLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Vendor/VendorLoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/VendorMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Vendor/VendorMainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Peaces/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peaces/Bus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Peaces/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peaces/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/BusManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/BusManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/DataInjection/BusInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/DataInjection/BusInjector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Systems/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/UserRegistration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,7 +412,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added a couple of features" />
     <MESSAGE value="Added customer registration" />
     <MESSAGE value="Fixed some formatting" />
     <MESSAGE value="Added some comments to the main class" />
@@ -431,6 +436,7 @@
     <MESSAGE value="Initial data injection added" />
     <MESSAGE value="typo correction" />
     <MESSAGE value="new branch route management" />
-    <option name="LAST_COMMIT_MESSAGE" value="new branch route management" />
+    <MESSAGE value="fix class design issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix class design issues" />
   </component>
 </project>

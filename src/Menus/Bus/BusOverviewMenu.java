@@ -4,7 +4,12 @@ import Peaces.Bus;
 import java.util.ArrayList;
 
 public class BusOverviewMenu {
-    public static int length = 3; // reflects the number of available options (used for getOption method in MenuManager class)
+
+    public static int getLength() {
+        // reflects the number of available options (used for getOption method in MenuManager class)
+        return 3;
+    }
+
     public static void printMenu(ArrayList<Bus> BusList) { // method to print the menu
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
