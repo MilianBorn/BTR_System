@@ -21,14 +21,14 @@ public class BusManager {
 
         // set random ID
         String newId = UUID.randomUUID().toString();
-        newBus.id = newId.substring(0,8); // only first 8 chars
+        newBus.setId(newId.substring(0,8)); // only first 8 chars
 
         // prompt the user for input and saves information in bus (Bus object)
 
         // set route from user input
         // ToDo: make this a selection of available origins and destinations (requires route systems first)
         System.out.print("Route: ");
-        newBus.route = getInput.nextLine();
+        newBus.setRoute(getInput.nextLine());
 
         // set date and time of departure from user input
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
@@ -48,7 +48,7 @@ public class BusManager {
                     System.out.println("Invalid date format");
                     continue;
                 }
-                newBus.date = newDate;
+                newBus.setDate(newDate);
                 isSet_date = true;
             }
             System.out.print("Time of departure [hh:mm]: ");
@@ -59,7 +59,7 @@ public class BusManager {
                 System.out.println("Invalid time format");
                 continue;
             }
-            newBus.time = newTime;
+            newBus.setTime(newTime);
             isSet_time = true;
         }
 
@@ -80,7 +80,7 @@ public class BusManager {
                 System.out.println("Invalid amount for capacity");
                 continue;
             }
-            newBus.capacity = newCapacity;
+            newBus.setCapacity(newCapacity);
             isSet_cap = true;
         }
 
@@ -102,7 +102,7 @@ public class BusManager {
                 continue;
             }
             newPrice = Float.parseFloat(String.format("%.2f", newPrice)); // truncate to two decimals
-            newBus.price = newPrice;
+            newBus.setPrice(newPrice);
             isSet_price = true;
         }
 
@@ -124,7 +124,7 @@ public class BusManager {
 
             // search for bus ID
             for (Bus bus : BusList) {
-                if (bus.id.equals(id)) {
+                if (bus.getId().equals(id)) {
                     rmvBus = bus;
                     isFound = true;
                     break;
@@ -145,7 +145,7 @@ public class BusManager {
         if (isFound) {
             // delete bus from list
             Bus finalRmvBus = rmvBus;
-            BusList.removeIf(bus -> bus.id.equals(finalRmvBus.id));
+            BusList.removeIf(bus -> bus.getId().equals(finalRmvBus.getId()));
             return finalRmvBus;
         } else { return null; }
     }

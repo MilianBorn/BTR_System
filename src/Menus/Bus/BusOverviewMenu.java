@@ -15,13 +15,13 @@ public class BusOverviewMenu {
         System.out.println("|–----------------------------------|");
 
         for (Bus bus : BusList) {
-            System.out.printf("|  ID:          %-20s|\n", bus.id);
-            System.out.printf("|  Route:       %-20s|\n", bus.route);
-            System.out.printf("|  Date:        %-20s|\n", bus.date);
-            System.out.printf("|  Time:        %-20s|\n", bus.time);
-            System.out.printf("|  Capacity:    %-20s|\n", bus.capacity);
+            System.out.printf("|  ID:          %-20s|\n", bus.getId());
+            System.out.printf("|  Route:       %-20s|\n", bus.getRoute());
+            System.out.printf("|  Date:        %-20s|\n", bus.getDate());
+            System.out.printf("|  Time:        %-20s|\n", bus.getTime());
+            System.out.printf("|  Capacity:    %-20s|\n", bus.getCapacity());
             System.out.printf("|  Free seats:  %-20d|\n", bus.freeSeats());
-            System.out.printf("|  Price (EUR): %-20s|\n", bus.price);
+            System.out.printf("|  Price (EUR): %-20s|\n", bus.getPrice());
             System.out.println("|–----------------------------------|");
         }
 
