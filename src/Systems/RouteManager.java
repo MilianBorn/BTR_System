@@ -1,15 +1,15 @@
 package Systems;
 
-import Peaces.Route;
+import Components.Bus;
+import Components.Route;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class RouteManager {
-    public ArrayList<Route> RouteList = new ArrayList<>();
+    public static ArrayList<Route> RouteList = new ArrayList<>();
 
-    public Route addRoute() {
+    public static Route addRoute() {
         Scanner getInput = new Scanner(System.in);
         Route newRoute = new Route();
 
@@ -35,8 +35,7 @@ public class RouteManager {
         return newRoute;
     }
 
-    public Route removeRoute() {
-        // ToDo: Remove busses that are assigned to the route as well
+    public static Route removeRoute() {
         Scanner getInput = new Scanner(System.in);
         Route rmvRoute = null;
 
@@ -69,7 +68,10 @@ public class RouteManager {
             }
         }
         if (isFound) {
-            RouteList.remove(rmvRoute);
+            for (Bus bus : rmvRoute.getAssignedBusses()) {
+                BusManager.BusList.remove(bus); // remove busses that are assigned to route
+            }
+            RouteList.remove(rmvRoute); // remove route
             return rmvRoute;
 
         } else {

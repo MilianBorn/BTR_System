@@ -1,14 +1,13 @@
 package Menus.Route;
-import Peaces.Route;
-
-import java.util.ArrayList;
+import Components.Route;
+import Systems.RouteManager;
 
 public class RouteOverviewMenu {
     public static int getLength() {
         // reflects the number of available options (used for getOption method in MenuManager class)
         return 3;
     }
-    public static void printMenu(ArrayList<Route> RouteList) { // method to print the menu
+    public static void printMenu() { // method to print the menu
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
         System.out.println("|   -----------------------------   |");
@@ -17,7 +16,7 @@ public class RouteOverviewMenu {
         System.out.println("| Route overview:                   |");
         System.out.println("|–----------------------------------|");
 
-        for (Route route : RouteList) {
+        for (Route route : RouteManager.RouteList) {
             System.out.printf("|  ID:          %-20s|\n", route.getId());
             System.out.println("|                                   |");
             System.out.printf("|  Origin:      %-20s|\n", route.getOrigin());

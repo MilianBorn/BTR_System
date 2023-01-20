@@ -1,9 +1,9 @@
 package Systems.DataInjection;
 
-import Peaces.User;
+import Components.User;
+import Systems.UserRegistration;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.OptionalLong;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -56,8 +56,7 @@ public class UserInjector {
     }
 
 
-    public static ArrayList<User> injectUser() {
-        ArrayList<User> injectedUser = new ArrayList<>();
+    public static void injectUser() {
         for (int i = 0; i < 10; i++) {
             User newUser = new User();
             newUser.setFname(user_fname[i]);
@@ -67,8 +66,7 @@ public class UserInjector {
             newUser.setUsername(user_username[i]);
             newUser.setPassword(user_password);
 
-            injectedUser.add(newUser);
+            UserRegistration.UserList.add(newUser); // add user to user list
         }
-        return injectedUser;
     }
 }

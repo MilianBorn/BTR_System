@@ -1,5 +1,7 @@
 package Systems;
-import Peaces.Bus;
+import Components.Bus;
+import Components.Route;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -10,10 +12,10 @@ import java.util.*;
 
 public class BusManager {
 
-    public ArrayList<Bus> BusList = new ArrayList<>(); // this is the bus list
+    public static ArrayList<Bus> BusList = new ArrayList<>(); // this is the bus list
 
     // method to register a new bus and add them to the bus list
-    public Bus addBus() {
+    public static Bus addBus() {
         // create scanner object for user input
         Scanner getInput = new Scanner(System.in);
         // create user object
@@ -25,11 +27,35 @@ public class BusManager {
 
         // prompt the user for input and saves information in bus (Bus object)
 
-        // set route from user input
-        // ToDo: Select and add existing routes from route list
-        // ToDo: Add bus to list of assigned busses in the route object
-        System.out.print("Route: ");
-        newBus.setRoute(getInput.nextLine());
+        // select and set route
+        boolean isFound = false;
+        while(!isFound) {
+            System.out.print("Origin: ");
+            String origin = getInput.nextLine();
+            System.out.print("Destination: ");
+            String destination = getInput.nextLine();
+
+            for (Route route : RouteManager.RouteList) {
+                if (origin.equalsIgnoreCase(route.getOrigin()) && destination.equalsIgnoreCase(route.getDestination())) {
+                    newBus.setRoute(route); // set route within bus
+                    route.assignBus(newBus); // assign bus to route
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if (!isFound) {
+                System.out.println("Route does not exist");
+                System.out.print("Try again? [y/n]");
+                String option = getInput.nextLine();
+                System.out.println();
+
+                // leave login system if user chooses to exit
+                if (option.equalsIgnoreCase("n")) {
+                    return null;
+                }
+            }
+        }
 
         // set date and time of departure from user input
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
@@ -112,7 +138,7 @@ public class BusManager {
         return newBus;
     }
 
-    public Bus removeBus() {
+    public static Bus removeBus() {
         // create scanner object for user input
         Scanner getInput = new Scanner(System.in);
 
@@ -144,7 +170,9 @@ public class BusManager {
             }
         }
         if (isFound) {
-            BusList.remove(rmvBus);
+            Route route = rmvBus.getRoute();
+            route.removeBus(rmvBus); // remove bus from the route
+            BusList.remove(rmvBus); // remove bus from bus list
             return rmvBus;
         } else { return null; }
     }

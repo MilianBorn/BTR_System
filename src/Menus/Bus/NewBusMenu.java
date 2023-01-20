@@ -1,5 +1,5 @@
 package Menus.Bus;
-import Peaces.Bus;
+import Components.Bus;
 
 public class NewBusMenu {
     public static int getLength() {
@@ -15,11 +15,11 @@ public class NewBusMenu {
         System.out.println("| New bus added:                    |");
         System.out.println("|–----------------------------------|");
         System.out.printf("|  ID:         %-21s|\n", newBus.getId());
-        System.out.printf("|  Route:      %-21s|\n", newBus.getRoute());
+        System.out.printf("|  Route:      %-21s|\n", newBus.getRoute().getId());
         System.out.printf("|  Date:       %-21s|\n", newBus.getDate());
         System.out.printf("|  Time:       %-21s|\n", newBus.getTime());
         System.out.printf("|  Capacity:   %-21s|\n", newBus.getCapacity());
-        System.out.printf("|  Price:      %-21s|\n", newBus.getPrice());
+        System.out.printf("|  Price:      %-21.2f|\n", newBus.getPrice());
         System.out.println("|–----------------------------------|");
         System.out.println("| Options:                          |");
         System.out.println("|       1. Add another bus          |");

@@ -1,6 +1,6 @@
 package Systems;
 
-import Peaces.User;
+import Components.User;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -8,9 +8,9 @@ import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class UserRegistration { // this class is used to for any logic needed to register users
-    public ArrayList<User> UserList = new ArrayList<>(); // this is the user list
+    public static ArrayList<User> UserList = new ArrayList<>(); // this is the user list
 
-    public User register() { // method to register a new user and add them to the user list
+    public static User register() { // method to register a new user and add them to the user list
         // create scanner object for user input
         Scanner getInput = new Scanner(System.in);
         // create user object

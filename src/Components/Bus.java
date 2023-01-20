@@ -1,4 +1,4 @@
-package Peaces;
+package Components;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -6,12 +6,12 @@ import java.util.ArrayList;
 public class Bus {
 
     private String id;                                       // unique bus ID
-    private String route;                                    // route of the bus
+    private Route route;                                    // route of the bus
     private LocalDate date;                                  // date of departure
     private LocalTime time;                                  // time of departure
     private int capacity;                                    // capacity of the bus
     private float price;                                     // price of the bus
-    private ArrayList<User> PassengerList;                        // list of passengers
+    private ArrayList<User> PassengerList;                    // list of passengers
 
     public Bus() {
         PassengerList = new ArrayList<>();
@@ -20,8 +20,7 @@ public class Bus {
     public void setId(String id) {
         this.id = id;
     }
-    // ToDo: Pass actual route object
-    public void setRoute(String route) {
+    public void setRoute(Route route) {
         this.route = route;
     }
     public void setDate(LocalDate date) {
@@ -40,7 +39,7 @@ public class Bus {
     public String getId() {
         return this.id;
     }
-    public String getRoute() {
+    public Route getRoute() {
         return this.route;
     }
     public LocalDate getDate() {

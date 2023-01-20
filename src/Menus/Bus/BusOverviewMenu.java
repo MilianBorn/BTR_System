@@ -1,7 +1,6 @@
 package Menus.Bus;
-import Peaces.Bus;
-
-import java.util.ArrayList;
+import Components.Bus;
+import Systems.BusManager;
 
 public class BusOverviewMenu {
 
@@ -10,7 +9,7 @@ public class BusOverviewMenu {
         return 3;
     }
 
-    public static void printMenu(ArrayList<Bus> BusList) { // method to print the menu
+    public static void printMenu() { // method to print the menu
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
         System.out.println("|   -----------------------------   |");
@@ -19,14 +18,14 @@ public class BusOverviewMenu {
         System.out.println("| Bus overview:                     |");
         System.out.println("|–----------------------------------|");
 
-        for (Bus bus : BusList) {
+        for (Bus bus : BusManager.BusList) {
             System.out.printf("|  ID:          %-20s|\n", bus.getId());
-            System.out.printf("|  Route:       %-20s|\n", bus.getRoute());
+            System.out.printf("|  Route:       %-20s|\n", bus.getRoute().getId());
             System.out.printf("|  Date:        %-20s|\n", bus.getDate());
             System.out.printf("|  Time:        %-20s|\n", bus.getTime());
             System.out.printf("|  Capacity:    %-20s|\n", bus.getCapacity());
             System.out.printf("|  Free seats:  %-20d|\n", bus.freeSeats());
-            System.out.printf("|  Price (EUR): %-20s|\n", bus.getPrice());
+            System.out.printf("|  Price (EUR): %-20.2f|\n", bus.getPrice());
             System.out.println("|–----------------------------------|");
         }
 

@@ -1,5 +1,5 @@
 package Systems.LoginSystem;
-import Peaces.User;
+import Components.User;
 
 public final class LoginResult {
     private final User user;

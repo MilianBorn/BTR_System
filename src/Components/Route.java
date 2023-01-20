@@ -1,4 +1,4 @@
-package Peaces;
+package Components;
 
 import java.util.ArrayList;
 

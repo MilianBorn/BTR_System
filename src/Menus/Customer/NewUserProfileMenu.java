@@ -1,5 +1,5 @@
 package Menus.Customer;
-import Peaces.User;
+import Components.User;
 
 public class NewUserProfileMenu {
     public static int getLength() {

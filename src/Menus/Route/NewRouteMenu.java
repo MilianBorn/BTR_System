@@ -1,5 +1,5 @@
 package Menus.Route;
-import Peaces.Route;
+import Components.Route;
 
 public class NewRouteMenu {
     public static int getLength() {

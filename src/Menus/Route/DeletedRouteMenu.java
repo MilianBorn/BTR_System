@@ -1,6 +1,6 @@
 package Menus.Route;
-import Peaces.Bus;
-import Peaces.Route;
+import Components.Bus;
+import Components.Route;
 
 public class DeletedRouteMenu {
     public static int getLength() {

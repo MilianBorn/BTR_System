@@ -1,5 +1,5 @@
 package Menus;
-
+// ToDo: Extend the width of ALL menus by about 3 tabs
 public class StartMenu {
     public static int getLength() {
         // reflects the number of available options (used for getOption method in MenuManager class)

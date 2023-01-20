@@ -1,10 +1,12 @@
 package Systems.DataInjection;
 
-import Peaces.Bus;
+import Components.Bus;
+import Components.Route;
+import Systems.BusManager;
+import Systems.RouteManager;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.OptionalInt;
 import java.util.Random;
 import java.util.UUID;
@@ -12,7 +14,7 @@ import java.util.UUID;
 // this lass is used to inject a number of busses into the program when its started
 public class BusInjector {
     public static final String[] bus_id = setBus_id();
-    public static final String[] bus_route = setBus_route();
+    public static final Route[] bus_route = setBus_route();
     public static final LocalDate[] bus_date = setBus_date();
     public static final LocalTime[] bus_time = setBus_time();
     public static final int[] bus_capacity = setBus_capacity();
@@ -27,9 +29,13 @@ public class BusInjector {
         return id;
     }
 
-    private static String[] setBus_route() {
-        return new String[] {"Berlin -> Hamburg", "Munich -> Koeln", "Frankfurt -> Stuttgart", "Leipzig -> Dortmund", "Bremen -> Dresden",
-                "Hamburg -> Berlin", "Koeln -> Munich", "Stuttgart -> Frankfurt", "Dortmund -> Leipzig", "Dresden -> Bremen"};
+    private static Route[] setBus_route() {
+        Route[] route = new Route[10];
+        for (int i = 0; i < 10; i++) {
+            int index = (int) (Math.random() * RouteManager.RouteList.size()); // random index
+            route[i] = RouteManager.RouteList.get(index);
+        }
+        return route;
     }
 
     private static LocalDate[] setBus_date() {
@@ -91,8 +97,8 @@ public class BusInjector {
         return prices;
     }
 
-    public static ArrayList<Bus> injectBus() {
-        ArrayList<Bus> injectedBus = new ArrayList<>();
+    public static void injectBus() {
+
         for (int i = 0; i < 10; i++) {
             Bus newBus = new Bus();
             newBus.setId(bus_id[i]);
@@ -102,8 +108,8 @@ public class BusInjector {
             newBus.setCapacity(bus_capacity[i]);
             newBus.setPrice(bus_price[i]);
 
-            injectedBus.add(newBus);
+            BusManager.BusList.add(newBus); // add bus to bus list
+            bus_route[i].assignBus(newBus); // assign bus to route
         }
-        return injectedBus;
     }
 }
