@@ -17,7 +17,7 @@ public class UserInjector {
     private static final String user_password = setUser_password();
 
     // ToDo: Assign tickets (busses) to users (initial user injector)
-    // private static final ArrayList<Bus>[] user_tickets = setUser_tickets;
+    // private static final ArrayList<Bus>[] user_tickets = setUser_tickets();
 
     private static String[] setUser_fname() {
         return new String[] {"Michael", "Christopher", "Jessica", "Matthew", "Ashley",
