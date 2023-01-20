@@ -7,15 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RouteManager {
-    // ToDo: Varsha -> Route Manager
-
-    // The route manager should include an array list to store Route objects (see UserRegistration)
-
-    // The route manager has three functionalities (3 methods):
-    // 1. List available routes
-    // 2. Add routes (source, destination, optional unique ID)
-    // 3. Remove routes
-
     public ArrayList<Route> RouteList = new ArrayList<>();
 
     public Route addRoute() {
@@ -45,6 +36,7 @@ public class RouteManager {
     }
 
     public Route removeRoute() {
+        // ToDo: Remove busses that are assigned to the route as well
         Scanner getInput = new Scanner(System.in);
         Route rmvRoute = null;
 

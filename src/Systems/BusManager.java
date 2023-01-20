@@ -26,7 +26,8 @@ public class BusManager {
         // prompt the user for input and saves information in bus (Bus object)
 
         // set route from user input
-        // ToDo: make this a selection of available origins and destinations (requires route systems first)
+        // ToDo: Select and add existing routes from route list
+        // ToDo: Add bus to list of assigned busses in the route object
         System.out.print("Route: ");
         newBus.setRoute(getInput.nextLine());
 

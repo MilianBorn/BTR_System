@@ -21,6 +21,7 @@ public class Route {
     public void setDestination(String destination) {
         this.destination = destination;
     }
+
     public String getId() {
         return this.id;
     }

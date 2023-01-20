@@ -35,8 +35,11 @@ public class Main {
         Route rmvRoute = null;
 
         // initiate the array lists
+        // ToDo: make user registration system static (no need for instance based logic)
         UserRegistration userRegistration = new UserRegistration(); // create an instance of the class UserRegistration (contains the user array list)
+        // ToDo: make bus manger system static (no need for instance based logic)
         BusManager busManager = new BusManager(); // create an instance of the class BusManager (contains the bus array list)
+        // ToDo: make route manager system static (no need for instance based logic)
         RouteManager routeManager = new RouteManager(); // create an instance of the class RouteManager (contains the route array list)
 
         // inject initial data

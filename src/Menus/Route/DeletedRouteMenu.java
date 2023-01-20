@@ -21,7 +21,6 @@ public class DeletedRouteMenu {
         System.out.printf("|  Destination: %-20s|\n", rmvRoute.getDestination());
         System.out.println("|                                   |");
 
-        // ToDo: implement feature to delete busses if route is deleted
         // print list of cancelled busses
         System.out.println("| Cancellations:                    |");
         if (rmvRoute.getAssignedBusses().size() == 0) {
