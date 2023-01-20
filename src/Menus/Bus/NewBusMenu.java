@@ -2,7 +2,10 @@ package Menus.Bus;
 import Peaces.Bus;
 
 public class NewBusMenu {
-    public static int length = 2; // reflects the number of available options (used for getOption method in MenuManager class)
+    public static int getLength() {
+        // reflects the number of available options (used for getOption method in MenuManager class)
+        return 2;
+    }
     public static void printMenu(Bus newBus) { // method to print the menu
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
@@ -11,12 +14,12 @@ public class NewBusMenu {
         System.out.println("=====================================");
         System.out.println("| New bus added:                    |");
         System.out.println("|–----------------------------------|");
-        System.out.printf("|  ID:         %-21s|\n", newBus.id);
-        System.out.printf("|  Route:      %-21s|\n", newBus.route);
-        System.out.printf("|  Date:       %-21s|\n", newBus.date);
-        System.out.printf("|  Time:       %-21s|\n", newBus.time);
-        System.out.printf("|  Capacity:   %-21s|\n", newBus.capacity);
-        System.out.printf("|  Price:      %-21s|\n", newBus.price);
+        System.out.printf("|  ID:         %-21s|\n", newBus.getId());
+        System.out.printf("|  Route:      %-21s|\n", newBus.getRoute());
+        System.out.printf("|  Date:       %-21s|\n", newBus.getDate());
+        System.out.printf("|  Time:       %-21s|\n", newBus.getTime());
+        System.out.printf("|  Capacity:   %-21s|\n", newBus.getCapacity());
+        System.out.printf("|  Price:      %-21s|\n", newBus.getPrice());
         System.out.println("|–----------------------------------|");
         System.out.println("| Options:                          |");
         System.out.println("|       1. Add another bus          |");

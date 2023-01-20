@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="class design correction">
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="fix class design issues">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Bus/BusManagementMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/BusManagementMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Bus/BusOverviewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/BusOverviewMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Bus/DeletedBusMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/DeletedBusMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Bus/NewBusMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Bus/NewBusMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/CustomerLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Customer/CustomerLoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/NewUserProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Customer/NewUserProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/VendorLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Vendor/VendorLoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/VendorMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Vendor/VendorMainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Peaces/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peaces/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Peaces/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Peaces/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Systems/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/UserRegistration.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Menus/Route/DeletedRouteMenu.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Menus/Route/NewRouteMenu.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Menus/Route/RouteOverviewMenu.java" afterDir="false" />
@@ -29,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="route_management" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -383,7 +397,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673631465107</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="typo correction">
+      <created>1673879635439</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1673879635439</updated>
+    </task>
+    <task id="LOCAL-00044" summary="new branch route management">
+      <created>1673879905699</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1673879905699</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,9 +426,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding login system pages" />
-    <MESSAGE value="Added a couple of minutes" />
-    <MESSAGE value="Added a couple of features" />
     <MESSAGE value="Added customer registration" />
     <MESSAGE value="Fixed some formatting" />
     <MESSAGE value="Added some comments to the main class" />
@@ -423,6 +448,9 @@
     <MESSAGE value="Bus Management" />
     <MESSAGE value="Minor Improvements" />
     <MESSAGE value="Initial data injection added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial data injection added" />
+    <MESSAGE value="typo correction" />
+    <MESSAGE value="new branch route management" />
+    <MESSAGE value="fix class design issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix class design issues" />
   </component>
 </project>

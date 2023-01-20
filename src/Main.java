@@ -67,7 +67,7 @@ public class Main {
                 // Start Menu
                 case 0 -> {
                     StartMenu.printMenu(); // prints the Start Menu
-                    option = MenuManager.getOption(StartMenu.length); // gets option from user and sets option variable accordingly
+                    option = MenuManager.getOption(StartMenu.getLength()); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -82,7 +82,7 @@ public class Main {
                 // Customer Login Menu
                 case 1 -> {
                     CustomerLoginMenu.printMenu(); // prints Customer Login Menu
-                    option = MenuManager.getOption(CustomerLoginMenu.length); // gets option from user and sets option variable accordingly
+                    option = MenuManager.getOption(CustomerLoginMenu.getLength()); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -101,7 +101,7 @@ public class Main {
                 // New User Profile Menu
                 case 2 -> {
                     NewUserProfileMenu.printMenu(newUser); // print New User Profile Menu
-                    option = MenuManager.getOption(NewUserProfileMenu.length); // gets option from user and sets option variable accordingly
+                    option = MenuManager.getOption(NewUserProfileMenu.getLength()); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -115,7 +115,7 @@ public class Main {
                 // Vendor Login Menu
                 case 3 -> {
                     VendorLoginMenu.printMenu(); // prints the Vendor Login Menu
-                    option = MenuManager.getOption(VendorLoginMenu.length); // gets option from user and sets option variable accordingly
+                    option = MenuManager.getOption(VendorLoginMenu.getLength()); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -130,7 +130,7 @@ public class Main {
                 // Vendor Main Menu
                 case 4 -> {
                     VendorMainMenu.printMenu(); // prints the menu
-                    option = MenuManager.getOption(VendorMainMenu.length);
+                    option = MenuManager.getOption(VendorMainMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -150,7 +150,7 @@ public class Main {
                 // Bus Management Menu
                 case 5 -> {
                     BusManagementMenu.printMenu(); // prints the menu
-                    option = MenuManager.getOption(BusManagementMenu.length);
+                    option = MenuManager.getOption(BusManagementMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -180,7 +180,7 @@ public class Main {
                 // Bus Overview Menu
                 case 6 -> {
                     BusOverviewMenu.printMenu(busManager.BusList); // prints the menu
-                    option = MenuManager.getOption(BusOverviewMenu.length);
+                    option = MenuManager.getOption(BusOverviewMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -200,7 +200,7 @@ public class Main {
                 // New Bus Menu
                 case 7 -> {
                     NewBusMenu.printMenu(newBus); // prints the menu
-                    option = MenuManager.getOption(NewBusMenu.length);
+                    option = MenuManager.getOption(NewBusMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -212,7 +212,7 @@ public class Main {
                 // Deleted Bus Menu
                 case 8 -> {
                     DeletedBusMenu.printMenu(rmvBus); // prints the menu
-                    option = MenuManager.getOption(DeletedBusMenu.length);
+                    option = MenuManager.getOption(DeletedBusMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {

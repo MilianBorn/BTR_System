@@ -1,7 +1,10 @@
 package Menus.Vendor;
 
 public class VendorMainMenu {
-    public static int length = 6;   // reflects the number of available options
+    public static int getLength() {
+        // reflects the number of available options (used for getOption method in MenuManager class)
+        return 6;
+    }
     public static void printMenu() { // method to print the menu
         System.out.println("======================================");
         System.out.println("|   Bus Ticket Reservation System    |");

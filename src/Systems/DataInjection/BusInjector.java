@@ -83,12 +83,12 @@ public class BusInjector {
         ArrayList<Bus> injectedBus = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Bus newBus = new Bus();
-            newBus.id = this.bus_id[i];
-            newBus.route = this.bus_route[i];
-            newBus.date = this.bus_date[i];
-            newBus.time = this.bus_time[i];
-            newBus.capacity = this.bus_capacity[i];
-            newBus.price = this.bus_price[i];
+            newBus.setId(this.bus_id[i]);
+            newBus.setRoute(this.bus_route[i]);
+            newBus.setDate(this.bus_date[i]);
+            newBus.setTime(this.bus_time[i]);
+            newBus.setCapacity(this.bus_capacity[i]);
+            newBus.setPrice(this.bus_price[i]);
 
             injectedBus.add(newBus);
         }
