@@ -143,10 +143,8 @@ public class BusManager {
             }
         }
         if (isFound) {
-            // delete bus from list
-            Bus finalRmvBus = rmvBus;
-            BusList.removeIf(bus -> bus.getId().equals(finalRmvBus.getId()));
-            return finalRmvBus;
+            BusList.remove(rmvBus);
+            return rmvBus;
         } else { return null; }
     }
 }
