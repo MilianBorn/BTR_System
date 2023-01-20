@@ -5,7 +5,6 @@ import Peaces.Route;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class RouteManager {
     // ToDo: Varsha -> Route Manager
@@ -16,62 +15,52 @@ public class RouteManager {
     // 1. List available routes
     // 2. Add routes (source, destination, optional unique ID)
     // 3. Remove routes
-    /* HashMap<String, ArrayList<Route>> Routemap = new HashMap<String, ArrayList<Route>>();
-    public ArrayList<Route> destinationList = new ArrayList<>();
 
-    public HashMap<String, ArrayList<Route>> addnewroute (){
-        Scanner getInput = new Scanner(System.in);
-
-        Route newRoute = new Route();
-
-        System.out.print("Enter Source:");
-        newRoute.source= getInput.nextLine();
-        System.out.print("Enter destination");
-        newRoute.destination=getInput.nextLine();
-
-        destinationList.add(newRoute);
-        Routemap.put(newRoute.source,destinationList);
-
-        return Routemap;
-*/
-    //toDO: check for unique values
-
-
-    public List<Route> RouteList = new ArrayList<Route>();
+    public ArrayList<Route> RouteList = new ArrayList<>();
 
     public Route addRoute() {
         Scanner getInput = new Scanner(System.in);
         Route newRoute = new Route();
 
-        String newId = UUID.randomUUID().toString();
-        newRoute.id = newId.substring(0, 8);
-        System.out.println("Enter Source:");
-        newRoute.source = getInput.nextLine();
+        System.out.print("Origin: ");
+        newRoute.setOrigin(getInput.nextLine());
 
-        System.out.println("Enter destination");
-        newRoute.Destination = getInput.nextLine();
+        System.out.print("Destination: ");
+        newRoute.setDestination(getInput.nextLine());
+
+        for (Route route : RouteList) {
+            if (route.getOrigin().equalsIgnoreCase(newRoute.getOrigin()) && route.getDestination().equalsIgnoreCase(newRoute.getDestination())) {
+                System.out.println();
+                System.out.println("Route already exists");
+                System.out.println();
+                return null;
+            }
+        }
+
+        String newId = newRoute.getOrigin() + " -> " + newRoute.getDestination();
+        newRoute.setId(newId);
 
         RouteList.add(newRoute);
         return newRoute;
-
-
     }
 
-    public Route deleteRoute() {
+    public Route removeRoute() {
         Scanner getInput = new Scanner(System.in);
-        Route removeRoute = null;
+        Route rmvRoute = null;
+
         boolean isFound = false;
         while (!isFound) {
-            System.out.println("Enter Route ID:"); // get id
-            String id = getInput.nextLine();
+            System.out.print("Origin: "); // get origin
+            String origin = getInput.nextLine();
+            System.out.print("Destination: "); // get destination
+            String destination = getInput.nextLine();
 
             // search for route
             for (Route route : RouteList) {
-                if (route.id.equals(id)) {
-                    removeRoute = route;
+                if (route.getOrigin().equalsIgnoreCase(origin) && route.getDestination().equalsIgnoreCase(destination)) {
+                    rmvRoute = route;
                     isFound = true;
                     break;
-
                 }
             }
 
@@ -88,8 +77,7 @@ public class RouteManager {
             }
         }
         if (isFound) {
-            Route rmvRoute = removeRoute;
-            RouteList.removeIf(route -> route.id.equals(rmvRoute.id));
+            RouteList.remove(rmvRoute);
             return rmvRoute;
 
         } else {

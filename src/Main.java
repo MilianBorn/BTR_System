@@ -5,6 +5,10 @@ import Menus.Bus.DeletedBusMenu;
 import Menus.Bus.NewBusMenu;
 import Menus.Customer.CustomerLoginMenu;
 import Menus.Customer.NewUserProfileMenu;
+import Menus.Route.DeletedRouteMenu;
+import Menus.Route.NewRouteMenu;
+import Menus.Route.RouteManagementMenu;
+import Menus.Route.RouteOverviewMenu;
 import Menus.Vendor.VendorLoginMenu;
 import Menus.Vendor.VendorMainMenu;
 import Systems.*;
@@ -14,6 +18,7 @@ import Systems.LoginSystem.LoginManager;
 import Systems.LoginSystem.LoginResult;
 import Peaces.User;
 import Peaces.Bus;
+import Peaces.Route;
 
 public class Main {
 
@@ -25,10 +30,13 @@ public class Main {
         User newUser = null;
         Bus newBus = null;
         Bus rmvBus = null;
+        Route newRoute = null;
+        Route rmvRoute = null;
 
         // initiate the array lists
         UserRegistration userRegistration = new UserRegistration(); // create an instance of the class UserRegistration (contains the user array list)
         BusManager busManager = new BusManager(); // create an instance of the class BusManager (contains the bus array list)
+        RouteManager routeManager = new RouteManager(); // create an instance of the class RouteManager (contains the route array list)
 
         // inject initial data
         UserInjector userInjector = new UserInjector();
@@ -42,15 +50,19 @@ public class Main {
 
             // the switch case statement is used to navigation between program menus and systems
             switch (menuNr) { // menuNr determines the selected menu or system
-                // case 0 = Start Menu
-                // case 1 = Customer Login Menu
-                // case 2 = New Customer Profile Menu
-                // case 3 = Vendor Login Menu
-                // case 4 = Vendor Main Menu
-                // case 5 = Bus Management Menu
-                // case 6 = Bus Overview Menu
-                // case 7 = New Bus Menu
-                // case 8 = Deleted Bus Menu
+                // case 0  = Start Menu
+                // case 1  = Customer Login Menu
+                // case 2  = New Customer Profile Menu
+                // case 3  = Vendor Login Menu
+                // case 4  = Vendor Main Menu
+                // case 5  = Bus Management Menu
+                // case 6  = Bus Overview Menu
+                // case 7  = New Bus Menu
+                // case 8  = Deleted Bus Menu
+                // case 9  = Route Management Menu
+                // case 10 = Route Overview Menu
+                // case 11 = New Route Menu
+                // case 12 = Deleted Route Menu
 
                 // Start Menu
                 case 0 -> {
@@ -80,7 +92,6 @@ public class Main {
                         LoginResult result = LoginManager.login(userRegistration.UserList, false);
                         if (result.getUser() != null && result.validation()) {
                             currentUser = result.getUser();
-                            // Todo: Varsha -> Customer Main Menu
                         }
                     } else {
                         menuNr = 0; // go to Start Menu
@@ -94,7 +105,6 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // Todo: Varsha -> Customer Main Menu
                     } else if (option == 2) {
                         newUser = userRegistration.register(); //1 gets profile details from user and saves new user in the user list // menuNr does not need to be changed
                     } else {
@@ -124,7 +134,7 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // ToDo: Route Management Menu
+                        menuNr = 9; // Go to Route Management Menu
                     } else if (option == 2){
                         menuNr = 5; // go to Bus Management Menu
                     } else if (option == 3){
@@ -140,7 +150,7 @@ public class Main {
                 // Bus Management Menu
                 case 5 -> {
                     BusManagementMenu.printMenu(); // prints the menu
-                    option = MenuManager.getOption(VendorMainMenu.length);
+                    option = MenuManager.getOption(BusManagementMenu.length);
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -218,6 +228,92 @@ public class Main {
                         }
                     } else {
                         menuNr = 5; // Go to Bus Management Menu
+                    }
+                }
+                // Route Management Menu
+                case 9 -> {
+                    RouteManagementMenu.printMenu(); // prints the menu
+                    option = MenuManager.getOption(RouteManagementMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        if (routeManager.RouteList.size() > 0) {
+                            menuNr = 10; // Go to Route Overview Menu
+                        } else {
+                            System.out.println("No routes found!");
+                            System.out.println();
+                        }
+                    } else if (option == 2){
+                        newRoute = routeManager.addRoute();
+                        menuNr = 11; // Go to New Route Menu
+                    } else if (option == 3){
+                        if (routeManager.RouteList.size() > 0) {
+                            rmvRoute = routeManager.removeRoute();
+                            if (rmvRoute != null) {
+                                menuNr = 12; // Deleted Route Menu
+                            }
+                        } else {
+                            System.out.println("No routes found!");
+                            System.out.println();
+                        }
+                    } else {
+                        menuNr = 4; // Go to Vendor Main Menu
+                    }
+                }
+                // Route Overview Menu
+                case 10 -> {
+                    RouteOverviewMenu.printMenu(routeManager.RouteList); // prints the menu
+                    option = MenuManager.getOption(RouteOverviewMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        newRoute = routeManager.addRoute();
+                        menuNr = 11; // Go to New Route Menu
+                    } else if (option == 2){
+                        rmvRoute = routeManager.removeRoute();
+                        if (rmvRoute != null) {
+                            menuNr = 12; // Go to Deleted Route Menu
+                        } else {
+                            menuNr = 9; // Go to Route Management Menu
+                        }
+                    } else {
+                        menuNr = 4; // Go to Vendor Main Menu
+                    }
+                }
+                // New Route Menu
+                case 11 -> {
+                    NewRouteMenu.printMenu(newRoute); // prints the menu
+                    option = MenuManager.getOption(NewRouteMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        newRoute = routeManager.addRoute();
+                        if (newRoute == null) {
+                            menuNr = 9; // Go to Route Management Menu
+                        }
+                    } else {
+                        menuNr = 9; // Go to Route Management Menu
+                    }
+                }
+                // Deleted Route Menu
+                case 12 -> {
+                    DeletedRouteMenu.printMenu(rmvRoute); // prints the menu
+                    option = MenuManager.getOption(DeletedRouteMenu.length);
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        if (routeManager.RouteList.size() > 0) {
+                            rmvRoute = routeManager.removeRoute();
+                            if (rmvRoute == null) {
+                                menuNr = 9; // Go to Route Management Menu
+                            }
+                        } else {
+                            System.out.println("No routes found!");
+                            System.out.println();
+                            menuNr = 9; // Go to Route Management Menu
+                        }
+                    } else {
+                        menuNr = 9; // Go to Route Management Menu
                     }
                 }
             }
