@@ -5,90 +5,102 @@ import Peaces.Bus;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.OptionalInt;
 import java.util.Random;
 import java.util.UUID;
 
 // this lass is used to inject a number of busses into the program when its started
 public class BusInjector {
-    public final String[] bus_id;                                       // unique bus ID
-    public final String[] bus_route;                                    // route of the bus
-    public final LocalDate[] bus_date;                                  // date of departure
-    public final LocalTime[] bus_time;                                  // time of departure
-    public final int[] bus_capacity;                                    // capacity of the bus
-    public final float[] bus_price;                                     // price of the bus
+    public static final String[] bus_id = setBus_id();
+    public static final String[] bus_route = setBus_route();
+    public static final LocalDate[] bus_date = setBus_date();
+    public static final LocalTime[] bus_time = setBus_time();
+    public static final int[] bus_capacity = setBus_capacity();
+    public static final float[] bus_price = setBus_price();
 
-    private void setBus_id() {
+    private static String[] setBus_id() {
+        String[] id = new String[10];
         for (int i = 0; i < 10; i++) {
             String newId = UUID.randomUUID().toString();
-            this.bus_id[i] = newId.substring(0,8);
+            id[i] = newId.substring(0,8);
         }
+        return id;
     }
 
-    private void setBus_date() {
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            int day = random.ints(1,29).findFirst().getAsInt();
-            int month = random.ints(1,4).findFirst().getAsInt();
-            this.bus_date[i] = LocalDate.of(2023, month, day);
-        }
-    }
-
-    private void setBus_time() {
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            int hour = random.ints(6,21).findFirst().getAsInt();
-            int minute = random.ints(0,60).findFirst().getAsInt();
-            this.bus_time[i] = LocalTime.of(hour, minute);
-        }
-    }
-
-    private void setBus_capacity() {
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            int capacity = random.ints(20,60).findFirst().getAsInt();
-            this.bus_capacity[i] = capacity;
-        }
-    }
-
-    private void setBus_price() {
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            int price = random.ints(40,150).findFirst().getAsInt();
-            this.bus_price[i] = (float)price;
-        }
-    }
-
-    public BusInjector() {
-
-        this.bus_id = new String[10];
-        setBus_id();
-
-        this.bus_route = new String[] {"Berlin -> Hamburg", "Munich -> Koeln", "Frankfurt -> Stuttgart", "Leipzig -> Dortmund", "Bremen -> Dresden",
+    private static String[] setBus_route() {
+        return new String[] {"Berlin -> Hamburg", "Munich -> Koeln", "Frankfurt -> Stuttgart", "Leipzig -> Dortmund", "Bremen -> Dresden",
                 "Hamburg -> Berlin", "Koeln -> Munich", "Stuttgart -> Frankfurt", "Dortmund -> Leipzig", "Dresden -> Bremen"};
-
-        this.bus_date = new LocalDate[10];
-        setBus_date();
-
-        this.bus_time = new LocalTime[10];
-        setBus_time();
-
-        this.bus_capacity = new int[10];
-        setBus_capacity();
-
-        this.bus_price = new float[10];
-        setBus_price();
     }
 
-    public ArrayList<Bus> injectBus() {
+    private static LocalDate[] setBus_date() {
+        LocalDate[] date = new LocalDate[10];
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            OptionalInt dayOl = random.ints(1,29).findFirst();
+            OptionalInt monthOl = random.ints(1,4).findFirst();
+
+            if (dayOl.isPresent() && monthOl.isPresent()) {
+                int day = dayOl.getAsInt();
+                int month = monthOl.getAsInt();
+                date[i] = LocalDate.of(2023, month, day);
+            }
+        }
+        return date;
+    }
+
+    private static LocalTime[] setBus_time() {
+        LocalTime[] time = new LocalTime[10];
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            OptionalInt hourOl = random.ints(6,21).findFirst();
+            OptionalInt minuteOl = random.ints(0,60).findFirst();
+
+            if (hourOl.isPresent() && minuteOl.isPresent()) {
+                int hour = hourOl.getAsInt();
+                int minute = minuteOl.getAsInt();
+                time[i] = LocalTime.of(hour, minute);
+            }
+        }
+        return time;
+    }
+
+    private static int[] setBus_capacity() {
+        int[] capacity = new int[10];
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            OptionalInt capOl = random.ints(20,60).findFirst();
+            if (capOl.isPresent()) {
+                int cap = capOl.getAsInt();
+                capacity[i] = cap;
+            }
+        }
+        return capacity;
+    }
+
+    private static  float[] setBus_price() {
+        float[] prices = new float[10];
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            OptionalInt priceOl = random.ints(40,150).findFirst();
+
+            if (priceOl.isPresent()) {
+                int price = priceOl.getAsInt();
+                prices[i] = (float)price;
+            }
+        }
+        return prices;
+    }
+
+    public static ArrayList<Bus> injectBus() {
         ArrayList<Bus> injectedBus = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Bus newBus = new Bus();
-            newBus.setId(this.bus_id[i]);
-            newBus.setRoute(this.bus_route[i]);
-            newBus.setDate(this.bus_date[i]);
-            newBus.setTime(this.bus_time[i]);
-            newBus.setCapacity(this.bus_capacity[i]);
-            newBus.setPrice(this.bus_price[i]);
+            newBus.setId(bus_id[i]);
+            newBus.setRoute(bus_route[i]);
+            newBus.setDate(bus_date[i]);
+            newBus.setTime(bus_time[i]);
+            newBus.setCapacity(bus_capacity[i]);
+            newBus.setPrice(bus_price[i]);
 
             injectedBus.add(newBus);
         }

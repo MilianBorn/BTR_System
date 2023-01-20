@@ -3,7 +3,10 @@ import Peaces.Bus;
 import Peaces.Route;
 
 public class DeletedRouteMenu {
-    public static int length = 2; // reflects the number of available options (used for getOption method in MenuManager class)
+    public static int getLength() {
+        // reflects the number of available options (used for getOption method in MenuManager class)
+        return 2;
+    }
     public static void printMenu(Route rmvRoute) { // method to print the menu
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
@@ -17,6 +20,7 @@ public class DeletedRouteMenu {
         System.out.printf("|  Origin:      %-20s|\n", rmvRoute.getOrigin());
         System.out.printf("|  Destination: %-20s|\n", rmvRoute.getDestination());
         System.out.println("|                                   |");
+
         // ToDo: implement feature to delete busses if route is deleted
         // print list of cancelled busses
         System.out.println("| Cancellations:                    |");
@@ -24,9 +28,10 @@ public class DeletedRouteMenu {
             System.out.println("|    none                           |");
         } else {
             for (Bus bus : rmvRoute.getAssignedBusses()) {
-                System.out.printf("|      Bus:     %-20s|\n", bus.id);
+                System.out.printf("|      Bus:     %-20s|\n", bus.getId());
             }
         }
+
         System.out.println("|–----------------------------------|");
         System.out.println("| Options:                          |");
         System.out.println("|       1. Remove another route     |");

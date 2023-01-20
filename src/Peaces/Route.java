@@ -3,11 +3,6 @@ package Peaces;
 import java.util.ArrayList;
 
 public class Route {
-    // ToDo: Varsha -> create class for routes
-
-    // source, destination, optional ID
-    // should we keep track of assigned busses? -> ArrayList for Bus objects
-
     private String id;
     private String origin;
     private String destination;
@@ -35,10 +30,14 @@ public class Route {
     public String getDestination() {
         return this.destination;
     }
+
     public ArrayList<Bus> getAssignedBusses() {
         return AssignedBusses;
     }
     public void assignBus(Bus bus) {
         this.AssignedBusses.add(bus);
+    }
+    public void removeBus(Bus bus) {
+        this.AssignedBusses.remove(bus);
     }
 }

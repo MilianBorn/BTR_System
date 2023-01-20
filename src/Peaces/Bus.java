@@ -2,7 +2,6 @@ package Peaces;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Bus {
 
@@ -12,7 +11,7 @@ public class Bus {
     private LocalTime time;                                  // time of departure
     private int capacity;                                    // capacity of the bus
     private float price;                                     // price of the bus
-    private List<User> PassengerList;                        // list of passengers
+    private ArrayList<User> PassengerList;                        // list of passengers
 
     public Bus() {
         PassengerList = new ArrayList<>();
@@ -21,6 +20,7 @@ public class Bus {
     public void setId(String id) {
         this.id = id;
     }
+    // ToDo: Pass actual route object
     public void setRoute(String route) {
         this.route = route;
     }
@@ -35,9 +35,6 @@ public class Bus {
     }
     public void setPrice(float price) {
         this.price = price;
-    }
-    public void addPassenger(User passenger) {
-        this.PassengerList.add(passenger);
     }
 
     public String getId() {
@@ -57,6 +54,16 @@ public class Bus {
     }
     public float getPrice() {
         return this.price;
+    }
+
+    public ArrayList<User> getPassengerList() {
+        return this.PassengerList;
+    }
+    public void addPassenger(User passenger) {
+        this.PassengerList.add(passenger);
+    }
+    public void removePassenger(User passenger) {
+        this.PassengerList.remove(passenger);
     }
 
     public int freeSeats() {

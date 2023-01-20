@@ -28,8 +28,8 @@ public class LoginManager {
                 }
             } else { // user login
                 for (User user : UserList) {
-                    if (user.username.equals(username) && user.password.equals(password)) {
-                        System.out.println("Welcome " + user.fname + " " + user.lname);
+                    if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                        System.out.println("Welcome " + user.getFname() + " " + user.getLname());
                         System.out.println();
                         System.out.println();
                         userLogin = user;
@@ -52,5 +52,8 @@ public class LoginManager {
         }
         // return the LoginResult -> current user (or "null") and state of the login variable for validation
         return new LoginResult(userLogin, login);
+        // userLogin = null     and login = true  -> successful admin login
+        // userLogin = not null and login = true  -> successful user login
+        // userLogin = null     and login = false -> failed login
     }
 }

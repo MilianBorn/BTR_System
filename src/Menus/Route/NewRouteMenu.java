@@ -2,7 +2,10 @@ package Menus.Route;
 import Peaces.Route;
 
 public class NewRouteMenu {
-    public static int length = 2; // reflects the number of available options (used for getOption method in MenuManager class)
+    public static int getLength() {
+        // reflects the number of available options (used for getOption method in MenuManager class)
+        return 2;
+    }
     public static void printMenu(Route newRoute) { // method to print the menu
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");

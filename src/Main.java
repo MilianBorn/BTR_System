@@ -4,6 +4,7 @@ import Menus.Bus.BusOverviewMenu;
 import Menus.Bus.DeletedBusMenu;
 import Menus.Bus.NewBusMenu;
 import Menus.Customer.CustomerLoginMenu;
+import Menus.Customer.CustomerMainMenu;
 import Menus.Customer.NewUserProfileMenu;
 import Menus.Route.DeletedRouteMenu;
 import Menus.Route.NewRouteMenu;
@@ -39,10 +40,8 @@ public class Main {
         RouteManager routeManager = new RouteManager(); // create an instance of the class RouteManager (contains the route array list)
 
         // inject initial data
-        UserInjector userInjector = new UserInjector();
-        userRegistration.UserList = userInjector.injectUser();
-        BusInjector busInjector = new BusInjector();
-        busManager.BusList = busInjector.injectBus();
+        userRegistration.UserList = UserInjector.injectUser();
+        busManager.BusList = BusInjector.injectBus();
 
         // main program
         boolean run = true; // while run = true the program keeps running, otherwise while loop will be exited
@@ -63,6 +62,7 @@ public class Main {
                 // case 10 = Route Overview Menu
                 // case 11 = New Route Menu
                 // case 12 = Deleted Route Menu
+                // case 13 = Customer Main Menu
 
                 // Start Menu
                 case 0 -> {
@@ -92,6 +92,7 @@ public class Main {
                         LoginResult result = LoginManager.login(userRegistration.UserList, false);
                         if (result.getUser() != null && result.validation()) {
                             currentUser = result.getUser();
+                            menuNr = 13; // Go to customer Main Menu
                         }
                     } else {
                         menuNr = 0; // go to Start Menu
@@ -105,6 +106,8 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
+                        currentUser = newUser;
+                        menuNr = 13; // go to Customer Main Menu
                     } else if (option == 2) {
                         newUser = userRegistration.register(); //1 gets profile details from user and saves new user in the user list // menuNr does not need to be changed
                     } else {
@@ -138,11 +141,11 @@ public class Main {
                     } else if (option == 2){
                         menuNr = 5; // go to Bus Management Menu
                     } else if (option == 3){
-                        // ToDo: Print busses and routes
+                        // ToDo: Implement Route Bus Overview Menu in Vendor Menus (print all routes and their busses)
                     } else if (option == 4){
-                        // ToDo: Print Transaction history
+                        // ToDo: Implement Transaction Overview Menu in Vendor Menus (print all tickets of all users)
                     } else if (option == 5){
-                        // ToDo: Print registered customers
+                        // ToDo: Implement Customer Overview Menu in Vendor Menu (print all registered customers)
                     } else {
                         menuNr = 0; // Go to start menu
                     }
@@ -233,7 +236,7 @@ public class Main {
                 // Route Management Menu
                 case 9 -> {
                     RouteManagementMenu.printMenu(); // prints the menu
-                    option = MenuManager.getOption(RouteManagementMenu.length);
+                    option = MenuManager.getOption(RouteManagementMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -263,7 +266,7 @@ public class Main {
                 // Route Overview Menu
                 case 10 -> {
                     RouteOverviewMenu.printMenu(routeManager.RouteList); // prints the menu
-                    option = MenuManager.getOption(RouteOverviewMenu.length);
+                    option = MenuManager.getOption(RouteOverviewMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -283,7 +286,7 @@ public class Main {
                 // New Route Menu
                 case 11 -> {
                     NewRouteMenu.printMenu(newRoute); // prints the menu
-                    option = MenuManager.getOption(NewRouteMenu.length);
+                    option = MenuManager.getOption(NewRouteMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -298,7 +301,7 @@ public class Main {
                 // Deleted Route Menu
                 case 12 -> {
                     DeletedRouteMenu.printMenu(rmvRoute); // prints the menu
-                    option = MenuManager.getOption(DeletedRouteMenu.length);
+                    option = MenuManager.getOption(DeletedRouteMenu.getLength());
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
@@ -314,6 +317,20 @@ public class Main {
                         }
                     } else {
                         menuNr = 9; // Go to Route Management Menu
+                    }
+                }
+                case 13 -> {
+                    CustomerMainMenu.printMenu(); // prints the Start Menu
+                    option = MenuManager.getOption(CustomerMainMenu.getLength()); // gets option from user and sets option variable accordingly
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        // ToDo: Implement route search
+                    } else if (option == 2) {
+                        // ToDo: Implement Ticket History Menu in Customer Menus (print all tickets (busses) in the current customer's ticket list)
+                    } else {
+                        currentUser = null; // logout user
+                        menuNr = 1; // Go to customer login menu
                     }
                 }
             }

@@ -4,69 +4,68 @@ import Peaces.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.OptionalLong;
 import java.util.concurrent.ThreadLocalRandom;
 
 // this lass is used to inject a number of users into the program when its started
 public class UserInjector {
-    private final String[] user_fname;
+    private static final String[] user_fname = setUser_fname();
+    private static final String[] user_lname = setUser_lname();
+    private static final LocalDate[] user_dob = setUser_dob();
+    private static final String[] user_email = setUser_email();
+    private static final String[] user_username = setUser_username();
+    private static final String user_password = setUser_password();
 
-    private final String[] user_lname;
-    private final String[] user_email;
-
-    private final LocalDate[] user_dob;
-
-    private  final String[] user_username;
-
-    private final String user_password;
-
-    private void setUser_dob() {
+    private static String[] setUser_fname() {
+        return new String[] {"Michael", "Christopher", "Jessica", "Matthew", "Ashley",
+                "Jennifer", "Joshua", "Amanda", "Daniel", "David"};
+    }
+    private static String[] setUser_lname() {
+        return new String[] {"Smith", "Johnson", "Williams", "Brown", "Jones",
+                "Miller", "Davis", "Wilson", "Anderson", "Taylor"};
+    }
+    private static LocalDate[] setUser_dob() {
+        LocalDate[] dob = new LocalDate[10];
         LocalDate startDate = LocalDate.of(1990, 1, 1); //start date
         long start = startDate.toEpochDay();
         LocalDate endDate = LocalDate.of(2000, 1, 1); //end date
         long end = endDate.toEpochDay();
 
         for (int i = 0; i < 10; i++) {
-            long randomEpochDay = ThreadLocalRandom.current().longs(start, end).findAny().getAsLong();
-            this.user_dob[i] = LocalDate.ofEpochDay(randomEpochDay);
+            OptionalLong randomEpochDayOl = ThreadLocalRandom.current().longs(start, end).findAny();
+            if (randomEpochDayOl.isPresent()) {
+                long randomEpochDay = randomEpochDayOl.getAsLong();
+                dob[i] = LocalDate.ofEpochDay(randomEpochDay);
+            }
         }
+        return dob;
     }
-
-    private void setUser_email() {
+    private static String[] setUser_email() {
+        String[] email = new String[10];
         for (int i = 0; i < 10; i++) {
-            this.user_email[i] = this.user_fname[i].toLowerCase() + '.' + this.user_lname[i].toLowerCase() + "@mail.com";
+            email[i] = user_fname[i].toLowerCase() + '.' + user_lname[i].toLowerCase() + "@mail.com";
         }
+        return email;
     }
-
-    public UserInjector() {
-
-        this.user_fname = new String[] {"Michael", "Christopher", "Jessica", "Matthew", "Ashley",
-                "Jennifer", "Joshua", "Amanda", "Daniel", "David"};
-
-        this.user_lname = new String[] {"Smith", "Johnson", "Williams", "Brown", "Jones",
-                "Miller", "Davis", "Wilson", "Anderson", "Taylor"};
-
-        this.user_dob = new LocalDate[10];
-        this.setUser_dob();
-
-        this.user_email = new String[10];
-        this.setUser_email();
-
-        this.user_username = new String[] {"AnthraX", "AmbientTech", "Best_Name_Ever", "Scarface", "SilverLady",
+    private static String[] setUser_username() {
+        return new String[] {"AnthraX", "AmbientTech", "Best_Name_Ever", "Scarface", "SilverLady",
                 "TravelLust", "Retro_Reactive", "Brains&Beauty", "Exodus", "Angus"};
-
-        this.user_password = "password";
+    }
+    private static String setUser_password() {
+        return "password";
     }
 
-    public ArrayList<User> injectUser() {
+
+    public static ArrayList<User> injectUser() {
         ArrayList<User> injectedUser = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             User newUser = new User();
-            newUser.fname = this.user_fname[i];
-            newUser.lname = this.user_lname[i];
-            newUser.dob = this.user_dob[i];
-            newUser.email = this.user_email[i];
-            newUser.username = this.user_username[i];
-            newUser.password = this.user_password;
+            newUser.setFname(user_fname[i]);
+            newUser.setLname(user_lname[i]);
+            newUser.setDob(user_dob[i]);
+            newUser.setEmail(user_email[i]);
+            newUser.setUsername(user_username[i]);
+            newUser.setPassword(user_password);
 
             injectedUser.add(newUser);
         }
