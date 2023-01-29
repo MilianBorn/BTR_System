@@ -1,11 +1,11 @@
-package Menus.Route;
-import Components.Route;
-import Systems.RouteManager;
+package Menus.Vendor;
+import Components.User;
+import Systems.CustomerManager;
 
-public class RouteOverviewMenu {
+public class CustomerOverviewMenu {
     public static int getLength() {
         // reflects the number of available options (used for getOption method in MenuManager class)
-        return 3;
+        return 1;
     }
     public static void printMenu() { // method to print the menu
         System.out.println("=====================================");
@@ -13,22 +13,22 @@ public class RouteOverviewMenu {
         System.out.println("|   -----------------------------   |");
         System.out.println("|          Vendor Platform          |");
         System.out.println("=====================================");
-        System.out.println("| Route overview:                   |");
+        System.out.println("| Customer overview:                |");
         System.out.println("|–----------------------------------|");
 
-        for (Route route : RouteManager.RouteList) {
-            System.out.printf("|  ID:          %-20s|\n", route.getId());
+        for (User user : CustomerManager.UserList) {
+            System.out.printf("| First name:    %-19s|\n", user.getFname());
+            System.out.printf("| Last name:     %-19s|\n", user.getLname());
+            System.out.printf("| Date of birth: %-19s|\n", user.getDob());
+            System.out.printf("| Email:         %-19s|\n", user.getEmail());
             System.out.println("|                                   |");
-            System.out.printf("|  Origin:      %-20s|\n", route.getOrigin());
-            System.out.printf("|  Destination: %-20s|\n", route.getDestination());
-            System.out.printf("|  # of busses: %-20d|\n", route.getAssignedBusses().size());
+            System.out.printf("| Username:      %-19s|\n", user.getUsername());
+            System.out.printf("| Password:      %-19s|\n", user.getPassword());
             System.out.println("|–----------------------------------|");
         }
 
         System.out.println("| Options:                          |");
-        System.out.println("|       1. Add Route                |");
-        System.out.println("|       2. Remove Route             |");
-        System.out.println("|       3. Vendor Menu              |");
+        System.out.println("|       1. Vendor Menu              |");
         System.out.println("|                                   |");
         System.out.println("=====================================");
     }

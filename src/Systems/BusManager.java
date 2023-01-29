@@ -135,6 +135,9 @@ public class BusManager {
 
         // add new bus to list
         BusList.add(newBus);
+        if (BusList.size() > 1) {
+            Collections.sort(BusList);
+        }
         return newBus;
     }
 

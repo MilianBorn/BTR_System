@@ -4,7 +4,7 @@ import Components.User;
 public class NewUserProfileMenu {
     public static int getLength() {
         // reflects the number of available options (used for getOption method in MenuManager class)
-        return 3;
+        return 2;
     }
     public static void printMenu(User newUser) { // method to print the menu
         System.out.println("=====================================");
@@ -24,7 +24,6 @@ public class NewUserProfileMenu {
         System.out.println("|–----------------------------------|");
         System.out.println("| Options:                          |");
         System.out.println("|       1. Login with this account  |");
-        System.out.println("|       2. Register another user    |");
         System.out.println("|       3. Back to menu             |");
         System.out.println("|                                   |");
         System.out.println("=====================================");

@@ -1,12 +1,12 @@
+import Components.Transaction;
 import Menus.*;
-import Menus.Bus.BusManagementMenu;
-import Menus.Bus.BusOverviewMenu;
-import Menus.Bus.DeletedBusMenu;
-import Menus.Bus.NewBusMenu;
+import Menus.Vendor.*;
+import Menus.Vendor.Bus.BusManagementMenu;
+import Menus.Vendor.Bus.BusOverviewMenu;
+import Menus.Vendor.Bus.DeletedBusMenu;
+import Menus.Vendor.Bus.NewBusMenu;
 import Menus.Customer.*;
-import Menus.Route.*;
-import Menus.Vendor.VendorLoginMenu;
-import Menus.Vendor.VendorMainMenu;
+import Menus.Vendor.Route.*;
 import Systems.*;
 import Systems.DataInjection.BusInjector;
 import Systems.DataInjection.RouteInjector;
@@ -17,7 +17,9 @@ import Components.User;
 import Components.Bus;
 import Components.Route;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Main {
 
@@ -34,10 +36,22 @@ public class Main {
         Route rmvRoute = null;
         Route searchedRoute = null;
 
-        // inject initial data
-        // RouteInjector.injectRoute();
-        // BusInjector.injectBus();
-        // 1UserInjector.injectUser();
+        ArrayList<Transaction> TransactionList = new ArrayList<>(); // this is the global transaction list
+
+        // data injection option
+        Scanner getInput = new Scanner(System.in);
+
+        System.out.print("Inject test data? [y/n] ");
+        String select = getInput.nextLine();
+        System.out.println();
+
+        if (select.equalsIgnoreCase("y")) {
+            // inject initial test data
+            RouteInjector.injectRoute();
+            BusInjector.injectBus();
+            UserInjector.injectUser();
+        }
+
 
         // main program
         boolean run = true; // while run = true the program keeps running, otherwise while loop will be exited
@@ -63,6 +77,9 @@ public class Main {
                 // case 15 = Available Busses Menu
                 // case 16 = Booking Confirmation Menu
                 // case 17 = Ticket History Menu
+                // case 18 = All Routes Busses Menu
+                // case 19 = Customer Overview Menu
+                // case 20 = Transaction Overview Menu
 
                 // Start Menu
                 case 0 -> {
@@ -86,7 +103,7 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        newUser = UserManager.registerUser(); // gets profile details from user and saves new user in the user list
+                        newUser = CustomerManager.registerUser(); // gets profile details from user and saves new user in the user list
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
                         LoginResult result = LoginManager.login(false);
@@ -108,8 +125,6 @@ public class Main {
                     if (option == 1) {
                         currentUser = newUser;
                         menuNr = 13; // go to Customer Main Menu
-                    } else if (option == 2) {
-                        newUser = UserManager.registerUser(); // gets profile details from user and saves new user in the user list // menuNr does not need to be changed
                     } else {
                         menuNr = 1; // go to Customer Login Menu
                     }
@@ -142,10 +157,28 @@ public class Main {
                         menuNr = 5; // go to Bus Management Menu
                     } else if (option == 3){
                         // ToDo: Implement Route-Bus Overview Menu in vendor menus (print all routes and their busses)
+                        if (RouteManager.RouteList.size() < 1) {
+                            System.out.println("No routes or busses available");
+                            System.out.println();
+                        } else {
+                            menuNr = 18; // Go to All Routes Busses Menu
+                        }
                     } else if (option == 4){
                         // ToDo: Implement Transaction Overview Menu in vendor menus (print all tickets of all users)
+                        if (TransactionList.size() < 1) {
+                            System.out.println("There are currently no recorded transactions");
+                            System.out.println();
+                        } else {
+                            menuNr = 20; // Go to Transaction Overview Menu
+                        }
                     } else if (option == 5){
                         // ToDo: Implement Customer Overview Menu in vendor menus (print all registered customers)
+                        if (CustomerManager.UserList.size() < 1) {
+                            System.out.println("There are currently no customer registered");
+                            System.out.println();
+                        } else {
+                            menuNr = 19; // Go to Customer Overview Menu
+                        }
                     } else {
                         menuNr = 0; // Go to start menu
                     }
@@ -334,6 +367,7 @@ public class Main {
                         menuNr = 9; // Go to Route Management Menu
                     }
                 }
+                // Customer Main Menu
                 case 13 -> {
                     CustomerMainMenu.printMenu(); // prints Customer Main Menu
                     option = MenuManager.getOption(CustomerMainMenu.getLength()); // gets option from user and sets option variable accordingly
@@ -347,7 +381,6 @@ public class Main {
                             menuNr = 14; // Go to Available Routes Menu
                         }
                     } else if (option == 2) {
-                        // ToDo: Implement Ticket History Menu in Customer Menus (print all tickets (busses) in the current customer's ticket list)
                         if (currentUser.getTicketList().size() < 1) {
                             System.out.println("No tickets in ticket history");
                             System.out.println();
@@ -359,6 +392,7 @@ public class Main {
                         menuNr = 1; // Go to customer login menu
                     }
                 }
+                // Available Routes Menu
                 case 14 -> {
                     AvailableRoutesMenu.printMenu(); // prints the Available Routes Menu
                     option = MenuManager.getOption(AvailableRoutesMenu.getLength()); // gets option from user and sets option variable accordingly
@@ -370,7 +404,7 @@ public class Main {
                             System.out.println();
                             menuNr = 13; // Go to Customer Main Menu
                         } else {
-                            searchedRoute = UserManager.searchRoute();
+                            searchedRoute = CustomerManager.searchRoute();
                             if (searchedRoute != null) {
                                 menuNr = 15; // Go to Available Busses Menu
                             } else {
@@ -379,6 +413,7 @@ public class Main {
                         }
                     }
                 }
+                // Available Busses Menu
                 case 15 -> {
                     AvailableBussesMenu.printMenu(searchedRoute); // prints the Available Busses Menu
                     option = MenuManager.getOption(AvailableBussesMenu.getLength()); // gets option from user and sets option variable accordingly
@@ -386,7 +421,7 @@ public class Main {
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
                         // book bus via UserManager
-                        searchedBus = UserManager.searchBus(searchedRoute);
+                        searchedBus = CustomerManager.searchBus(searchedRoute);
                         if (searchedBus != null) {
                             menuNr = 16; // Go to Booking Confirmation Menu
                         } else {
@@ -396,6 +431,7 @@ public class Main {
                         menuNr = 13; // Go to Customer Main menu
                     }
                 }
+                // Booking Confirmation Menu
                 case 16 -> {
                     BookingConfirmationMenu.printMenu(searchedBus); // prints the Booking Confirmation Menu
                     option = MenuManager.getOption(BookingConfirmationMenu.getLength()); // gets option from user and sets option variable accordingly
@@ -405,20 +441,50 @@ public class Main {
                     if (option == 1) {
                         currentUser.addTicket(searchedBus); // add bus to user ticket list
                         searchedBus.addPassenger(currentUser); // add passenger to bus
+                        Transaction newTransaction = new Transaction(currentUser, searchedBus);
+                        TransactionList.add(newTransaction);
                         System.out.println("Booking confirmed");
                         System.out.println();
                     }
                     menuNr = 13; // Go to Customer Main Menu
                 }
+                // Ticket History Menu
                 case 17 -> {
                     if (currentUser.getTicketList().size() > 1) {
                         Collections.sort(currentUser.getTicketList()); // sort user ticket list by departure date
                     }
                     TicketHistoryMenu.printMenu(currentUser); // prints the Ticket History
-                    MenuManager.getOption(TicketHistoryMenu.getLength()); // gets option from user and sets option variable accordingly
+                    MenuManager.getOption(TicketHistoryMenu.getLength()); // prompts user for option in order to continue
 
                     // Go to Customer Main menu
                     menuNr = 13; // Go to Customer Main Menu
+                }
+                // All Routes Busses Menu
+                case 18 -> {
+                    AllRoutesBussesMenu.printMenu(); // prints menu
+                    MenuManager.getOption(AllRoutesBussesMenu.getLength()); // prompts user for option in order to continue
+
+                    // Go to Customer Main menu
+                    menuNr = 4; // Go to Vendor Main Menu
+                }
+                // Customer Overview Menu
+                case 19 -> {
+                    CustomerOverviewMenu.printMenu(); // prints menu
+                    MenuManager.getOption(CustomerOverviewMenu.getLength()); // prompts user for option in order to continue
+
+                    // Go to Customer Main menu
+                    menuNr = 4; // Go to Vendor Main Menu
+                }
+                // Customer Overview Menu
+                case 20 -> {
+                    if (TransactionList.size() > 1) {
+                        Collections.sort(TransactionList); // sort transaction list by date
+                    }
+                    TransactionOverviewMenu.printMenu(TransactionList); // prints menu
+                    MenuManager.getOption(TransactionOverviewMenu.getLength()); // prompts user for option in order to continue
+
+                    // Go to Customer Main menu
+                    menuNr = 4; // Go to Vendor Main Menu
                 }
             }
         }

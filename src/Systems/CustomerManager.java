@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
-public class UserManager { // this class is used to for any logic needed to register users
+public class CustomerManager { // this class is used to for any logic needed to register users
     public static ArrayList<User> UserList = new ArrayList<>(); // this is the user list
 
     public static User registerUser() { // method to register a new user and add them to the user list
