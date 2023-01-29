@@ -1,6 +1,6 @@
 package Systems.LoginSystem;
 import Components.User;
-import Systems.UserRegistration;
+import Systems.UserManager;
 
 import java.util.Scanner;
 
@@ -28,7 +28,7 @@ public class LoginManager {
                     login = true;
                 }
             } else { // user login
-                for (User user : UserRegistration.UserList) {
+                for (User user : UserManager.UserList) {
                     if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                         System.out.println("Welcome " + user.getFname() + " " + user.getLname());
                         System.out.println();

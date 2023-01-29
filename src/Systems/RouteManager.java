@@ -70,6 +70,7 @@ public class RouteManager {
         if (isFound) {
             for (Bus bus : rmvRoute.getAssignedBusses()) {
                 BusManager.BusList.remove(bus); // remove busses that are assigned to route
+                bus.setStatus(false); // indicate that the bus was cancelled
             }
             RouteList.remove(rmvRoute); // remove route
             return rmvRoute;

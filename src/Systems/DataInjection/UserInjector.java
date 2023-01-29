@@ -1,7 +1,7 @@
 package Systems.DataInjection;
 
 import Components.User;
-import Systems.UserRegistration;
+import Systems.UserManager;
 
 import java.time.LocalDate;
 import java.util.OptionalLong;
@@ -69,7 +69,7 @@ public class UserInjector {
             newUser.setUsername(user_username[i]);
             newUser.setPassword(user_password);
 
-            UserRegistration.UserList.add(newUser); // add user to user list
+            UserManager.UserList.add(newUser); // add user to user list
         }
     }
 }

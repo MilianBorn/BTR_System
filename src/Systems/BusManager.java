@@ -173,6 +173,7 @@ public class BusManager {
             Route route = rmvBus.getRoute();
             route.removeBus(rmvBus); // remove bus from the route
             BusList.remove(rmvBus); // remove bus from bus list
+            rmvBus.setStatus(false); // indicate that the bus is cancelled
             return rmvBus;
         } else { return null; }
     }

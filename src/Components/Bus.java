@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Bus {
+public class Bus implements Comparable<Bus> {
 
     private String id;                                       // unique bus ID
     private Route route;                                    // route of the bus
@@ -11,10 +11,12 @@ public class Bus {
     private LocalTime time;                                  // time of departure
     private int capacity;                                    // capacity of the bus
     private float price;                                     // price of the bus
+    private boolean isConfirmed;                             //
     private ArrayList<User> PassengerList;                    // list of passengers
 
     public Bus() {
         PassengerList = new ArrayList<>();
+        isConfirmed = true;
     }
 
     public void setId(String id) {
@@ -35,6 +37,9 @@ public class Bus {
     public void setPrice(float price) {
         this.price = price;
     }
+    public void setStatus(boolean isConfirmed) {
+        this.isConfirmed = isConfirmed;
+    }
 
     public String getId() {
         return this.id;
@@ -54,6 +59,9 @@ public class Bus {
     public float getPrice() {
         return this.price;
     }
+    public boolean getStatus() {
+        return this.isConfirmed;
+    }
 
     public ArrayList<User> getPassengerList() {
         return this.PassengerList;
@@ -67,6 +75,10 @@ public class Bus {
 
     public int freeSeats() {
         return capacity - PassengerList.size();
+    }
+    @Override // allows bus objects to be compared and sorted by departure date
+    public int compareTo(Bus bus) {
+        return getDate().compareTo(bus.getDate());
     }
 }
 

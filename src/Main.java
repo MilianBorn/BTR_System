@@ -3,13 +3,8 @@ import Menus.Bus.BusManagementMenu;
 import Menus.Bus.BusOverviewMenu;
 import Menus.Bus.DeletedBusMenu;
 import Menus.Bus.NewBusMenu;
-import Menus.Customer.CustomerLoginMenu;
-import Menus.Customer.CustomerMainMenu;
-import Menus.Customer.NewUserProfileMenu;
-import Menus.Route.DeletedRouteMenu;
-import Menus.Route.NewRouteMenu;
-import Menus.Route.RouteManagementMenu;
-import Menus.Route.RouteOverviewMenu;
+import Menus.Customer.*;
+import Menus.Route.*;
 import Menus.Vendor.VendorLoginMenu;
 import Menus.Vendor.VendorMainMenu;
 import Systems.*;
@@ -22,6 +17,8 @@ import Components.User;
 import Components.Bus;
 import Components.Route;
 
+import java.util.Collections;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -32,13 +29,15 @@ public class Main {
         User newUser = null;
         Bus newBus = null;
         Bus rmvBus = null;
+        Bus searchedBus = null;
         Route newRoute = null;
         Route rmvRoute = null;
+        Route searchedRoute = null;
 
         // inject initial data
-        RouteInjector.injectRoute();
-        BusInjector.injectBus();
-        UserInjector.injectUser();
+        // RouteInjector.injectRoute();
+        // BusInjector.injectBus();
+        // 1UserInjector.injectUser();
 
         // main program
         boolean run = true; // while run = true the program keeps running, otherwise while loop will be exited
@@ -60,6 +59,10 @@ public class Main {
                 // case 11 = New Route Menu
                 // case 12 = Deleted Route Menu
                 // case 13 = Customer Main Menu
+                // case 14 = Available Routes Menu
+                // case 15 = Available Busses Menu
+                // case 16 = Booking Confirmation Menu
+                // case 17 = Ticket History Menu
 
                 // Start Menu
                 case 0 -> {
@@ -83,7 +86,7 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        newUser = UserRegistration.register(); // gets profile details from user and saves new user in the user list
+                        newUser = UserManager.registerUser(); // gets profile details from user and saves new user in the user list
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
                         LoginResult result = LoginManager.login(false);
@@ -106,7 +109,7 @@ public class Main {
                         currentUser = newUser;
                         menuNr = 13; // go to Customer Main Menu
                     } else if (option == 2) {
-                        newUser = UserRegistration.register(); // gets profile details from user and saves new user in the user list // menuNr does not need to be changed
+                        newUser = UserManager.registerUser(); // gets profile details from user and saves new user in the user list // menuNr does not need to be changed
                     } else {
                         menuNr = 1; // go to Customer Login Menu
                     }
@@ -332,18 +335,90 @@ public class Main {
                     }
                 }
                 case 13 -> {
-                    CustomerMainMenu.printMenu(); // prints the Start Menu
+                    CustomerMainMenu.printMenu(); // prints Customer Main Menu
                     option = MenuManager.getOption(CustomerMainMenu.getLength()); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // ToDo: Implement route search and ticket assignment to user
+                        if (RouteManager.RouteList.size() < 1) {
+                            System.out.println("There are no routes currently available");
+                            System.out.println();
+                        } else {
+                            menuNr = 14; // Go to Available Routes Menu
+                        }
                     } else if (option == 2) {
                         // ToDo: Implement Ticket History Menu in Customer Menus (print all tickets (busses) in the current customer's ticket list)
+                        if (currentUser.getTicketList().size() < 1) {
+                            System.out.println("No tickets in ticket history");
+                            System.out.println();
+                        } else {
+                            menuNr = 17; // Go to Ticket History Menu
+                        }
                     } else {
                         currentUser = null; // logout user
                         menuNr = 1; // Go to customer login menu
                     }
+                }
+                case 14 -> {
+                    AvailableRoutesMenu.printMenu(); // prints the Available Routes Menu
+                    option = MenuManager.getOption(AvailableRoutesMenu.getLength()); // gets option from user and sets option variable accordingly
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        if (BusManager.BusList.size() < 1) {
+                            System.out.println("There are currently no busses available");
+                            System.out.println();
+                            menuNr = 13; // Go to Customer Main Menu
+                        } else {
+                            searchedRoute = UserManager.searchRoute();
+                            if (searchedRoute != null) {
+                                menuNr = 15; // Go to Available Busses Menu
+                            } else {
+                                menuNr = 13; // Go to Customer Main Menu
+                            }
+                        }
+                    }
+                }
+                case 15 -> {
+                    AvailableBussesMenu.printMenu(searchedRoute); // prints the Available Busses Menu
+                    option = MenuManager.getOption(AvailableBussesMenu.getLength()); // gets option from user and sets option variable accordingly
+
+                    // navigate to next menu or system according to selected option
+                    if (option == 1) {
+                        // book bus via UserManager
+                        searchedBus = UserManager.searchBus(searchedRoute);
+                        if (searchedBus != null) {
+                            menuNr = 16; // Go to Booking Confirmation Menu
+                        } else {
+                            menuNr = 13; // Go to Customer Main Menu
+                        }
+                    } else {
+                        menuNr = 13; // Go to Customer Main menu
+                    }
+                }
+                case 16 -> {
+                    BookingConfirmationMenu.printMenu(searchedBus); // prints the Booking Confirmation Menu
+                    option = MenuManager.getOption(BookingConfirmationMenu.getLength()); // gets option from user and sets option variable accordingly
+
+                    // navigate to next menu or system according to selected option
+                    // Go to Customer Main menu
+                    if (option == 1) {
+                        currentUser.addTicket(searchedBus); // add bus to user ticket list
+                        searchedBus.addPassenger(currentUser); // add passenger to bus
+                        System.out.println("Booking confirmed");
+                        System.out.println();
+                    }
+                    menuNr = 13; // Go to Customer Main Menu
+                }
+                case 17 -> {
+                    if (currentUser.getTicketList().size() > 1) {
+                        Collections.sort(currentUser.getTicketList()); // sort user ticket list by departure date
+                    }
+                    TicketHistoryMenu.printMenu(currentUser); // prints the Ticket History
+                    MenuManager.getOption(TicketHistoryMenu.getLength()); // gets option from user and sets option variable accordingly
+
+                    // Go to Customer Main menu
+                    menuNr = 13; // Go to Customer Main Menu
                 }
             }
         }
