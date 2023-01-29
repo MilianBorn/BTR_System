@@ -2,6 +2,7 @@ package Systems;
 
 import Components.Bus;
 import Components.Route;
+import Components.Transaction;
 import Components.User;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.util.*;
 
 public class CustomerManager { // this class is used to for any logic needed to register users
     public static ArrayList<User> UserList = new ArrayList<>(); // this is the user list
+    public static ArrayList<Transaction> TransactionList = new ArrayList<>(); // this is the global transaction list from customers
 
     public static User registerUser() { // method to register a new user and add them to the user list
         // create scanner object for user input

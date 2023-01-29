@@ -1,9 +1,13 @@
 package Systems.DataInjection;
 
+import Components.Bus;
+import Components.Transaction;
 import Components.User;
+import Systems.BusManager;
 import Systems.CustomerManager;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.OptionalLong;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -16,8 +20,7 @@ public class UserInjector {
     private static final String[] user_username = setUser_username();
     private static final String user_password = setUser_password();
 
-    // ToDo: Assign tickets (busses) to users (initial user injector)
-    // private static final ArrayList<Bus>[] user_tickets = setUser_tickets();
+    private static final ArrayList<ArrayList<Bus>> user_tickets = setUser_tickets();
 
     private static String[] setUser_fname() {
         return new String[] {"Michael", "Christopher", "Jessica", "Matthew", "Ashley",
@@ -58,6 +61,22 @@ public class UserInjector {
         return "password";
     }
 
+    private static ArrayList<ArrayList<Bus>> setUser_tickets() {
+        ArrayList<ArrayList<Bus>> userTickets = new ArrayList<>();
+
+        // create 10 ticket lists for all users
+        for (int i = 0; i < 10; i++) {
+            ArrayList<Bus> ticketList = new ArrayList<>();
+            // add two random busses per ticket list
+            for (int n = 0; n < 2; n++) {
+                int index = (int) (Math.random() * BusManager.BusList.size()); // random index from bus list
+                ticketList.add(BusManager.BusList.get(index)); // add bus to ticket list
+            }
+            userTickets.add(ticketList);
+        }
+        return userTickets;
+    }
+
 
     public static void injectUser() {
         for (int i = 0; i < 10; i++) {
@@ -68,8 +87,16 @@ public class UserInjector {
             newUser.setEmail(user_email[i]);
             newUser.setUsername(user_username[i]);
             newUser.setPassword(user_password);
+            newUser.setTicketList(user_tickets.get(i));
 
             CustomerManager.UserList.add(newUser); // add user to user list
+
+            // update dependent lists (passenger and transaction)
+            for (int n = 0; n < 2; n++) {
+                user_tickets.get(i).get(n).addPassenger(newUser); // user to passenger lists from user tickets
+                Transaction newTransaction = new Transaction(newUser, user_tickets.get(i).get(n)); // create transaction
+                CustomerManager.TransactionList.add(newTransaction); // add to transaction list
+            }
         }
     }
 }

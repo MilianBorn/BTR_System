@@ -17,7 +17,6 @@ import Components.User;
 import Components.Bus;
 import Components.Route;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -36,7 +35,6 @@ public class Main {
         Route rmvRoute = null;
         Route searchedRoute = null;
 
-        ArrayList<Transaction> TransactionList = new ArrayList<>(); // this is the global transaction list
 
         // data injection option
         Scanner getInput = new Scanner(System.in);
@@ -165,7 +163,7 @@ public class Main {
                         }
                     } else if (option == 4){
                         // ToDo: Implement Transaction Overview Menu in vendor menus (print all tickets of all users)
-                        if (TransactionList.size() < 1) {
+                        if (CustomerManager.TransactionList.size() < 1) {
                             System.out.println("There are currently no recorded transactions");
                             System.out.println();
                         } else {
@@ -442,7 +440,7 @@ public class Main {
                         currentUser.addTicket(searchedBus); // add bus to user ticket list
                         searchedBus.addPassenger(currentUser); // add passenger to bus
                         Transaction newTransaction = new Transaction(currentUser, searchedBus);
-                        TransactionList.add(newTransaction);
+                        CustomerManager.TransactionList.add(newTransaction);
                         System.out.println("Booking confirmed");
                         System.out.println();
                     }
@@ -477,10 +475,10 @@ public class Main {
                 }
                 // Customer Overview Menu
                 case 20 -> {
-                    if (TransactionList.size() > 1) {
-                        Collections.sort(TransactionList); // sort transaction list by date
+                    if (CustomerManager.TransactionList.size() > 1) {
+                        Collections.sort(CustomerManager.TransactionList); // sort transaction list by date
                     }
-                    TransactionOverviewMenu.printMenu(TransactionList); // prints menu
+                    TransactionOverviewMenu.printMenu(); // prints menu
                     MenuManager.getOption(TransactionOverviewMenu.getLength()); // prompts user for option in order to continue
 
                     // Go to Customer Main menu

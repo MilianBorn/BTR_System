@@ -34,8 +34,8 @@ public class User { // this class represents a user and is used to initialise us
     public void setPassword(String password) {
         this.password = password;
     }
-    public void addBus(Bus ticket) {
-        this.TicketList.add(ticket);
+    public void setTicketList(ArrayList<Bus> ticketList) {
+        this.TicketList = ticketList;
     }
 
     public String getFname() {
@@ -66,4 +66,6 @@ public class User { // this class represents a user and is used to initialise us
     public void removeTicket(Bus ticket) {
         this.TicketList.remove(ticket);
     }
+
+
 }

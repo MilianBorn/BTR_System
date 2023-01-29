@@ -1,8 +1,8 @@
 package Menus.Vendor;
 import Components.Transaction;
+import Systems.CustomerManager;
 
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 
 public class TransactionOverviewMenu {
@@ -10,7 +10,7 @@ public class TransactionOverviewMenu {
         // reflects the number of available options (used for getOption method in MenuManager class)
         return 1;
     }
-    public static void printMenu(ArrayList<Transaction> TransactionList) { // method to print the menu
+    public static void printMenu() { // method to print the menu
         System.out.println("=====================================");
         System.out.println("|   Bus Ticket Reservation System   |");
         System.out.println("|   -----------------------------   |");
@@ -19,7 +19,7 @@ public class TransactionOverviewMenu {
         System.out.println("| Transaction overview:             |");
         System.out.println("|–----------------------------------|");
 
-        for ( Transaction transaction : TransactionList) {
+        for ( Transaction transaction : CustomerManager.TransactionList) {
             System.out.printf("| Date:          %-19s|\n", DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(transaction.getDate()));
             System.out.println("|                                   |");
             System.out.println("| User                              |");
