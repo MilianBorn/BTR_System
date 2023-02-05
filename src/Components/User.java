@@ -3,6 +3,7 @@ package Components;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
+// ToDo: create abstract superclass "user" with usrname and pw and two subclasses customer and admin
 public class User { // this class represents a user and is used to initialise user instances
     private String fname;
     private String lname;

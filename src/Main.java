@@ -45,6 +45,7 @@ public class Main {
 
         if (select.equalsIgnoreCase("y")) {
             // inject initial test data
+            // ToDo: Make the data injection classes abstract (never used to instantiate objects)
             RouteInjector.injectRoute();
             BusInjector.injectBus();
             UserInjector.injectUser();
@@ -104,6 +105,7 @@ public class Main {
                         newUser = CustomerManager.registerUser(); // gets profile details from user and saves new user in the user list
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
+                        // ToDo: Adapt customer login to new implementation of "login" based on "customer" and "admin" classes
                         LoginResult result = LoginManager.login(false);
                         if (result.getUser() != null && result.validation()) {
                             currentUser = result.getUser();
@@ -135,6 +137,7 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
+                        // ToDo: Adapt vendor login to new implementation of "login" based on "customer" and "admin" classes
                         LoginResult result = LoginManager.login(true);
                         if (result.validation()) {
                             menuNr = 4;
@@ -154,7 +157,6 @@ public class Main {
                     } else if (option == 2){
                         menuNr = 5; // go to Bus Management Menu
                     } else if (option == 3){
-                        // ToDo: Implement Route-Bus Overview Menu in vendor menus (print all routes and their busses)
                         if (RouteManager.RouteList.size() < 1) {
                             System.out.println("No routes or busses available");
                             System.out.println();
@@ -162,7 +164,6 @@ public class Main {
                             menuNr = 18; // Go to All Routes Busses Menu
                         }
                     } else if (option == 4){
-                        // ToDo: Implement Transaction Overview Menu in vendor menus (print all tickets of all users)
                         if (CustomerManager.TransactionList.size() < 1) {
                             System.out.println("There are currently no recorded transactions");
                             System.out.println();
@@ -170,7 +171,6 @@ public class Main {
                             menuNr = 20; // Go to Transaction Overview Menu
                         }
                     } else if (option == 5){
-                        // ToDo: Implement Customer Overview Menu in vendor menus (print all registered customers)
                         if (CustomerManager.UserList.size() < 1) {
                             System.out.println("There are currently no customer registered");
                             System.out.println();

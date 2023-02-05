@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class LoginManager {
     // the user login system validates the user identity and sets the current user
+
+    // ToDo: Overload the login function with two implementations depending on whether "user" or "admin" class is involved
     public static LoginResult login(boolean isAdmin) { // takes the user list as input and boolean that indicates user or admin login
 
         Scanner getInput = new Scanner(System.in); // set up java input scanner

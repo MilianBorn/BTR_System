@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="rest of the required features">
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="user injection assign tickets">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/TransactionOverviewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/Vendor/TransactionOverviewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/CustomerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/DataInjection/UserInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/DataInjection/UserInjector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menus/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menus/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Systems/LoginSystem/LoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Systems/LoginSystem/LoginManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,13 +87,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666627033785</updated>
-    </task>
-    <task id="LOCAL-00003" summary="project initiation">
-      <created>1669047636381</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669047636381</updated>
     </task>
     <task id="LOCAL-00004" summary="project initiation">
       <created>1669048477725</created>
@@ -432,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675009632201</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="user injection assign tickets">
+      <created>1675013088034</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1675013088034</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -447,7 +446,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added some comments to the MenuManager" />
     <MESSAGE value="Added some comments" />
     <MESSAGE value="ToDos Team Meeting 08.12" />
     <MESSAGE value="Start of Login System" />
@@ -472,6 +470,7 @@
     <MESSAGE value="add ToDo" />
     <MESSAGE value="ticket booking feature" />
     <MESSAGE value="rest of the required features" />
-    <option name="LAST_COMMIT_MESSAGE" value="rest of the required features" />
+    <MESSAGE value="user injection assign tickets" />
+    <option name="LAST_COMMIT_MESSAGE" value="user injection assign tickets" />
   </component>
 </project>
