@@ -12,7 +12,7 @@ import java.util.OptionalLong;
 import java.util.concurrent.ThreadLocalRandom;
 
 // this lass is used to inject a number of users into the program when its started
-public class UserInjector {
+public  class UserInjector {
     private static final String[] user_fname = setUser_fname();
     private static final String[] user_lname = setUser_lname();
     private static final LocalDate[] user_dob = setUser_dob();
@@ -80,7 +80,12 @@ public class UserInjector {
 
     public static void injectUser() {
         for (int i = 0; i < 10; i++) {
-            User newUser = new User();
+            User newUser = new User() {
+                @Override
+                public boolean isAdmin() {
+                    return false;
+                }
+            };
             newUser.setFname(user_fname[i]);
             newUser.setLname(user_lname[i]);
             newUser.setDob(user_dob[i]);

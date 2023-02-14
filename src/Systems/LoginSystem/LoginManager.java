@@ -1,4 +1,5 @@
 package Systems.LoginSystem;
+import Components.Admin;
 import Components.User;
 import Systems.CustomerManager;
 
@@ -6,9 +7,7 @@ import java.util.Scanner;
 
 public class LoginManager {
     // the user login system validates the user identity and sets the current user
-
-    // ToDo: Overload the login function with two implementations depending on whether "user" or "admin" class is involved
-    public static LoginResult login(boolean isAdmin) { // takes the user list as input and boolean that indicates user or admin login
+    public static LoginResult login() { // takes the user list as input and boolean that indicates user or admin login
 
         Scanner getInput = new Scanner(System.in); // set up java input scanner
 
@@ -22,24 +21,42 @@ public class LoginManager {
             System.out.print("Password: ");
             String password = getInput.nextLine();
 
-            if (isAdmin) { // admin login
-                if (username.equals("admin") && password.equals("admin")) {
-                    System.out.println("You are logged in as ADMIN");
+            for (User user : CustomerManager.UserList) {
+                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                    System.out.println("Welcome " + user.getFname() + " " + user.getLname());
                     System.out.println();
                     System.out.println();
+                    userLogin = user;
                     login = true;
                 }
-            } else { // user login
-                for (User user : CustomerManager.UserList) {
-                    if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                        System.out.println("Welcome " + user.getFname() + " " + user.getLname());
-                        System.out.println();
-                        System.out.println();
-                        userLogin = user;
-                        login = true;
-                    }
-                }
             }
+
+            if (username.equals("admin") && password.equals("admin")) {
+                System.out.println("You are logged in as ADMIN");
+                System.out.println();
+                System.out.println();
+                userLogin = new Admin("admin", "admin");
+                login = true;
+            }
+
+//            if (isAdmin) { // admin login
+//                if (username.equals("admin") && password.equals("admin")) {
+//                    System.out.println("You are logged in as ADMIN");
+//                    System.out.println();
+//                    System.out.println();
+//                    login = true;
+//                }
+//            } else { // user login
+//                for (User user : CustomerManager.UserList) {
+//                    if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+//                        System.out.println("Welcome " + user.getFname() + " " + user.getLname());
+//                        System.out.println();
+//                        System.out.println();
+//                        userLogin = user;
+//                        login = true;
+//                    }
+//                }
+//            }
 
             if (!login) { // prompt error message
                 System.out.println("Incorrect username or password");

@@ -18,7 +18,12 @@ public class CustomerManager { // this class is used to for any logic needed to 
         // create scanner object for user input
         Scanner getInput = new Scanner(System.in);
         // create user object
-        User newUser = new User();
+        User newUser = new User() {
+            @Override
+            public boolean isAdmin() {
+                return false;
+            }
+        };
 
         // prompt the user for input and saves information in customer (User object)
         System.out.print("First name: ");

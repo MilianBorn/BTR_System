@@ -105,8 +105,7 @@ public class Main {
                         newUser = CustomerManager.registerUser(); // gets profile details from user and saves new user in the user list
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
-                        // ToDo: Adapt customer login to new implementation of "login" based on "customer" and "admin" classes
-                        LoginResult result = LoginManager.login(false);
+                        LoginResult result = LoginManager.login();
                         if (result.getUser() != null && result.validation()) {
                             currentUser = result.getUser();
                             menuNr = 13; // Go to customer Main Menu
@@ -137,8 +136,7 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // ToDo: Adapt vendor login to new implementation of "login" based on "customer" and "admin" classes
-                        LoginResult result = LoginManager.login(true);
+                        LoginResult result = LoginManager.login();
                         if (result.validation()) {
                             menuNr = 4;
                         }
