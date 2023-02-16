@@ -3,7 +3,7 @@ package Systems.DataInjection;
 import Components.Route;
 import Systems.RouteManager;
 
-public class RouteInjector {
+public abstract class RouteInjector {
     private static final String[] route_origin = setRoute_origin();
     private static final String[] route_destination = setRoute_destination();
     private static final String[] route_id = setRoute_id();

@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.UUID;
 
 // this lass is used to inject a number of busses into the program when its started
-public class BusInjector {
+public abstract class BusInjector {
     public static final String[] bus_id = setBus_id();
     public static final Route[] bus_route = setBus_route();
     public static final LocalDate[] bus_date = setBus_date();

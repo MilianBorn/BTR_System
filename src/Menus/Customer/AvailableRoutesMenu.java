@@ -1,9 +1,8 @@
 package Menus.Customer;
 import Components.Route;
-import Menus.Menu;
 import Systems.RouteManager;
 
-public class AvailableRoutesMenu implements Menu {
+public abstract class AvailableRoutesMenu {
     public static int getLength() {
         // reflects the number of available options (used for getOption method in MenuManager class)
         return 2;
@@ -18,14 +17,14 @@ public class AvailableRoutesMenu implements Menu {
         System.out.println("|–--------------------------------------------|");
 
         for (Route route : RouteManager.RouteList) {
-            System.out.printf("|  ID:                    %-12s|\n", route.getId());
-            System.out.printf("|  # of busses:           %-12d|\n", route.getAssignedBusses().size());
+            System.out.printf("|  ID:            %-24s|\n", route.getId());
+            System.out.printf("|  # of busses:   %-24d|\n", route.getAssignedBusses().size());
             System.out.println("|–----------------------------------------|");
         }
 
-        System.out.println("|       Options:                              |");
-        System.out.println("|            1. Select Route                  |");
-        System.out.println("|            2. Back to Menu                  |");
+        System.out.println("|  Options:                                   |");
+        System.out.println("|       1. Select Route                       |");
+        System.out.println("|       2. Back to Menu                       |");
         System.out.println("|                                             |");
         System.out.println("===============================================");
     }

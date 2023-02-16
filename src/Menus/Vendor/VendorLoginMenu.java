@@ -1,8 +1,6 @@
 package Menus.Vendor;
 
-import Menus.Menu;
-
-public class VendorLoginMenu implements Menu {
+public abstract class VendorLoginMenu {
     public static int getLength() {
         // reflects the number of available options (used for getOption method in MenuManager class)
         return 2;
@@ -13,9 +11,9 @@ public class VendorLoginMenu implements Menu {
         System.out.println("|   ---------------------------------------   |");
         System.out.println("|               Vendor Platform               |");
         System.out.println("===============================================");
-        System.out.println("|      Options:                               |");
-        System.out.println("|                 1. Login                    |");
-        System.out.println("|                 2. Back                     |");
+        System.out.println("|  Options:                                   |");
+        System.out.println("|             1. Login                        |");
+        System.out.println("|             2. Back                         |");
         System.out.println("|                                             |");
         System.out.println("===============================================");
     }

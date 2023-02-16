@@ -1,9 +1,8 @@
 package Menus.Vendor;
 import Components.User;
-import Menus.Menu;
 import Systems.CustomerManager;
 
-public class CustomerOverviewMenu implements Menu {
+public abstract class CustomerOverviewMenu {
     public static int getLength() {
         // reflects the number of available options (used for getOption method in MenuManager class)
         return 1;
@@ -18,17 +17,17 @@ public class CustomerOverviewMenu implements Menu {
         System.out.println("|–--------------------------------------------|");
 
         for (User user : CustomerManager.UserList) {
-            System.out.printf("| First name:              %-11s|\n", user.getFname());
-            System.out.printf("| Last name:               %-11s|\n", user.getLname());
-            System.out.printf("| Date of birth:           %-11s|\n", user.getDob());
-            System.out.printf("| Email:                   %-11s|\n", user.getEmail());
+            System.out.printf("| First name:     %-28s|\n", user.getFname());
+            System.out.printf("| Last name:      %-28s|\n", user.getLname());
+            System.out.printf("| Date of birth:  %-28s|\n", user.getDob());
+            System.out.printf("| Email:          %-28s|\n", user.getEmail());
             System.out.println("|                                            |");
-            System.out.printf("| Username:                %-11s|\n", user.getUsername());
-            System.out.printf("| Password:                %-11s|\n", user.getPassword());
-            System.out.println("|–----------------------------------------|");
+            System.out.printf("| Username:       %-28s|\n", user.getUsername());
+            System.out.printf("| Password:       %-28s|\n", user.getPassword());
+            System.out.println("|–--------------------------------------------|");
         }
 
-        System.out.println("|      Options:                               |");
+        System.out.println("|  Options:                                   |");
         System.out.println("|            1. Vendor Menu                   |");
         System.out.println("|                                             |");
         System.out.println("===============================================");
