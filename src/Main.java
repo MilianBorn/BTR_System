@@ -1,21 +1,20 @@
-import Components.Transaction;
-import Menus.*;
-import Menus.Vendor.*;
-import Menus.Vendor.Bus.BusManagementMenu;
-import Menus.Vendor.Bus.BusOverviewMenu;
-import Menus.Vendor.Bus.DeletedBusMenu;
-import Menus.Vendor.Bus.NewBusMenu;
-import Menus.Customer.*;
-import Menus.Vendor.Route.*;
-import Systems.*;
-import Systems.DataInjection.BusInjector;
-import Systems.DataInjection.RouteInjector;
-import Systems.DataInjection.UserInjector;
-import Systems.LoginSystem.LoginManager;
-import Systems.LoginSystem.LoginResult;
-import Components.User;
-import Components.Bus;
-import Components.Route;
+import menus.*;
+import menus.vendor.*;
+import menus.vendor.bus.BusManagementMenu;
+import menus.vendor.bus.BusOverviewMenu;
+import menus.vendor.bus.DeletedBusMenu;
+import menus.vendor.bus.NewBusMenu;
+import menus.customer.*;
+import menus.vendor.route.*;
+import systems.*;
+import systems.dataInjection.BusInjector;
+import systems.dataInjection.RouteInjector;
+import systems.dataInjection.UserInjector;
+import systems.loginSystem.LoginManager;
+import systems.loginSystem.LoginResult;
+import components.User;
+import components.Bus;
+import components.Route;
 
 import java.util.Collections;
 import java.util.Scanner;
@@ -45,7 +44,6 @@ public class Main {
 
         if (select.equalsIgnoreCase("y")) {
             // inject initial test data
-            // ToDo: Make the data injection classes abstract (never used to instantiate objects)
             RouteInjector.injectRoute();
             BusInjector.injectBus();
             UserInjector.injectUser();
@@ -105,7 +103,6 @@ public class Main {
                         newUser = CustomerManager.registerUser(); // gets profile details from user and saves new user in the user list
                         menuNr = 2; // go to New User Profile Menu
                     } else if (option == 2) {
-                        // ToDo: Adapt customer login to new implementation of "login" based on "customer" and "admin" classes
                         LoginResult result = LoginManager.login(false);
                         if (result.getUser() != null && result.validation()) {
                             currentUser = result.getUser();
@@ -137,7 +134,6 @@ public class Main {
 
                     // navigate to next menu or system according to selected option
                     if (option == 1) {
-                        // ToDo: Adapt vendor login to new implementation of "login" based on "customer" and "admin" classes
                         LoginResult result = LoginManager.login(true);
                         if (result.validation()) {
                             menuNr = 4;
@@ -367,7 +363,7 @@ public class Main {
                 }
                 // Customer Main Menu
                 case 13 -> {
-                    CustomerMainMenu.printMenu(); // prints Customer Main Menu
+                    CustomerMainMenu.printMenu(currentUser); // prints Customer Main Menu
                     option = MenuManager.getOption(CustomerMainMenu.getLength()); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
@@ -435,12 +431,9 @@ public class Main {
                     option = MenuManager.getOption(BookingConfirmationMenu.getLength()); // gets option from user and sets option variable accordingly
 
                     // navigate to next menu or system according to selected option
-                    // Go to Customer Main menu
                     if (option == 1) {
-                        currentUser.addTicket(searchedBus); // add bus to user ticket list
-                        searchedBus.addPassenger(currentUser); // add passenger to bus
-                        Transaction newTransaction = new Transaction(currentUser, searchedBus); // create new transaction
-                        CustomerManager.TransactionList.add(newTransaction); // add transaction to transaction list
+                        // book new ticket
+                        CustomerManager.bookTicket(currentUser, searchedBus);
                         System.out.println("Booking confirmed");
                         System.out.println();
                     }
