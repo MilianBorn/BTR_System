@@ -1,43 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="New ToDos">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Bus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/User.java" afterDir="false" />
+    <list default="true" id="9b2f730d-c473-4f0b-b320-bda40a66bb24" name="Changes" comment="Final updates">
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/AvailableBussesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/customer/AvailableBussesMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/AvailableRoutesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/customer/AvailableRoutesMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/BookingConfirmationMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/customer/BookingConfirmationMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/CustomerLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/customer/CustomerLoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/CustomerMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/customer/CustomerMainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/NewUserProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/customer/NewUserProfileMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Customer/TicketHistoryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/customer/TicketHistoryMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/StartMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/AllRoutesBussesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/AllRoutesBussesMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Bus/BusManagementMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/bus/BusManagementMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Bus/BusOverviewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/bus/BusOverviewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Bus/DeletedBusMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/bus/DeletedBusMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Bus/NewBusMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/bus/NewBusMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/CustomerOverviewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/CustomerOverviewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Route/DeletedRouteMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/route/DeletedRouteMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Route/NewRouteMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/route/NewRouteMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Route/RouteManagementMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/route/RouteManagementMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/Route/RouteOverviewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/route/RouteOverviewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/TransactionOverviewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/TransactionOverviewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/VendorLoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/VendorLoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menus/Vendor/VendorMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/vendor/VendorMainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/BusManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/BusManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/CustomerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/DataInjection/BusInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/dataInjection/BusInjector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/DataInjection/RouteInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/dataInjection/RouteInjector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/DataInjection/UserInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/dataInjection/UserInjector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/LoginSystem/LoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/loginSystem/LoginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/LoginSystem/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/loginSystem/LoginResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/MenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/MenuManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Systems/RouteManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/systems/RouteManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,13 +93,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666627033785</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Debugging start menu">
-      <created>1669051876279</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1669051876279</updated>
     </task>
     <task id="LOCAL-00007" summary="Debugging start menu">
       <created>1669191611127</created>
@@ -472,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675600801652</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Final updates">
+      <created>1676589417021</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1676589417021</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -487,7 +452,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ToDos Team Meeting 08.12" />
     <MESSAGE value="Start of Login System" />
     <MESSAGE value="Typo correction" />
     <MESSAGE value="What is this file anyway?" />
@@ -512,6 +476,7 @@
     <MESSAGE value="rest of the required features" />
     <MESSAGE value="user injection assign tickets" />
     <MESSAGE value="New ToDos" />
-    <option name="LAST_COMMIT_MESSAGE" value="New ToDos" />
+    <MESSAGE value="Final updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final updates" />
   </component>
 </project>

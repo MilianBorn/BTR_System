@@ -1,17 +1,11 @@
 import menus.*;
 import menus.vendor.*;
-import menus.vendor.bus.BusManagementMenu;
-import menus.vendor.bus.BusOverviewMenu;
-import menus.vendor.bus.DeletedBusMenu;
-import menus.vendor.bus.NewBusMenu;
-import menus.customer.*;
+import menus.vendor.bus.*;
 import menus.vendor.route.*;
+import menus.customer.*;
 import systems.*;
-import systems.dataInjection.BusInjector;
-import systems.dataInjection.RouteInjector;
-import systems.dataInjection.UserInjector;
-import systems.loginSystem.LoginManager;
-import systems.loginSystem.LoginResult;
+import systems.dataInjection.*;
+import systems.loginSystem.*;
 import components.User;
 import components.Bus;
 import components.Route;
@@ -26,16 +20,16 @@ public class Main {
         int menuNr = 0; // used to navigate between menus and systems in the main switch case statement
         int option; // reflects the selected option by the user in each menu
         User currentUser = null; // this is the current user profile (will be set by customer login)
-        User newUser = null;
-        Bus newBus = null;
-        Bus rmvBus = null;
-        Bus searchedBus = null;
-        Route newRoute = null;
-        Route rmvRoute = null;
-        Route searchedRoute = null;
+        User newUser = null; // stores the most recently added user
+        Bus newBus = null; // stores the most recently added bus
+        Bus rmvBus = null; // stores the most recently removed bus
+        Bus searchedBus = null; // stores the most recently searched bus
+        Route newRoute = null; // stores the most recently added route
+        Route rmvRoute = null; // stores the most recently removed route
+        Route searchedRoute = null; // stores the most recently searched route
 
 
-        // data injection option
+        // test data injection option
         Scanner getInput = new Scanner(System.in);
 
         System.out.print("Inject test data? [y/n] ");
@@ -142,6 +136,7 @@ public class Main {
                         menuNr = 0; // go to Start Menu
                     }
                 }
+
                 // Vendor Main Menu
                 case 4 -> {
                     VendorMainMenu.printMenu(); // prints the menu
@@ -177,6 +172,7 @@ public class Main {
                         menuNr = 0; // Go to start menu
                     }
                 }
+
                 // Bus Management Menu
                 case 5 -> {
                     BusManagementMenu.printMenu(); // prints the menu
@@ -209,6 +205,7 @@ public class Main {
                         menuNr = 4; // Go to Vendor Main Menu
                     }
                 }
+
                 // Bus Overview Menu
                 case 6 -> {
                     BusOverviewMenu.printMenu(); // prints the menu
@@ -233,6 +230,7 @@ public class Main {
                         menuNr = 4; // Go to Vendor Main Menu
                     }
                 }
+
                 // New Bus Menu
                 case 7 -> {
                     NewBusMenu.printMenu(newBus); // prints the menu
@@ -248,6 +246,7 @@ public class Main {
                         menuNr = 5; // Go to Bus Management Menu
                     }
                 }
+
                 // Deleted Bus Menu
                 case 8 -> {
                     DeletedBusMenu.printMenu(rmvBus); // prints the menu
@@ -269,6 +268,7 @@ public class Main {
                         menuNr = 5; // Go to Bus Management Menu
                     }
                 }
+
                 // Route Management Menu
                 case 9 -> {
                     RouteManagementMenu.printMenu(); // prints the menu
@@ -301,6 +301,7 @@ public class Main {
                         menuNr = 4; // Go to Vendor Main Menu
                     }
                 }
+
                 // Route Overview Menu
                 case 10 -> {
                     RouteOverviewMenu.printMenu(); // prints the menu
@@ -325,6 +326,7 @@ public class Main {
                         menuNr = 4; // Go to Vendor Main Menu
                     }
                 }
+
                 // New Route Menu
                 case 11 -> {
                     NewRouteMenu.printMenu(newRoute); // prints the menu
@@ -340,6 +342,7 @@ public class Main {
                         menuNr = 9; // Go to Route Management Menu
                     }
                 }
+
                 // Deleted Route Menu
                 case 12 -> {
                     DeletedRouteMenu.printMenu(rmvRoute); // prints the menu
@@ -361,6 +364,7 @@ public class Main {
                         menuNr = 9; // Go to Route Management Menu
                     }
                 }
+
                 // Customer Main Menu
                 case 13 -> {
                     CustomerMainMenu.printMenu(currentUser); // prints Customer Main Menu
@@ -386,6 +390,7 @@ public class Main {
                         menuNr = 1; // Go to customer login menu
                     }
                 }
+
                 // Available Routes Menu
                 case 14 -> {
                     AvailableRoutesMenu.printMenu(); // prints the Available Routes Menu
@@ -407,6 +412,7 @@ public class Main {
                         }
                     }
                 }
+
                 // Available Busses Menu
                 case 15 -> {
                     AvailableBussesMenu.printMenu(searchedRoute); // prints the Available Busses Menu
@@ -425,6 +431,7 @@ public class Main {
                         menuNr = 13; // Go to Customer Main menu
                     }
                 }
+
                 // Booking Confirmation Menu
                 case 16 -> {
                     BookingConfirmationMenu.printMenu(searchedBus); // prints the Booking Confirmation Menu
@@ -439,6 +446,7 @@ public class Main {
                     }
                     menuNr = 13; // Go to Customer Main Menu
                 }
+
                 // Ticket History Menu
                 case 17 -> {
                     if (currentUser.getTicketList().size() > 1) {
@@ -450,6 +458,7 @@ public class Main {
                     // Go to Customer Main menu
                     menuNr = 13; // Go to Customer Main Menu
                 }
+
                 // All Routes Busses Menu
                 case 18 -> {
                     AllRoutesBussesMenu.printMenu(); // prints menu
@@ -458,6 +467,7 @@ public class Main {
                     // Go to Customer Main menu
                     menuNr = 4; // Go to Vendor Main Menu
                 }
+
                 // Customer Overview Menu
                 case 19 -> {
                     CustomerOverviewMenu.printMenu(); // prints menu
@@ -466,6 +476,7 @@ public class Main {
                     // Go to Customer Main menu
                     menuNr = 4; // Go to Vendor Main Menu
                 }
+
                 // Customer Overview Menu
                 case 20 -> {
                     if (CustomerManager.TransactionList.size() > 1) {
