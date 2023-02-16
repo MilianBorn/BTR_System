@@ -439,8 +439,8 @@ public class Main {
                     if (option == 1) {
                         currentUser.addTicket(searchedBus); // add bus to user ticket list
                         searchedBus.addPassenger(currentUser); // add passenger to bus
-                        Transaction newTransaction = new Transaction(currentUser, searchedBus);
-                        CustomerManager.TransactionList.add(newTransaction);
+                        Transaction newTransaction = new Transaction(currentUser, searchedBus); // create new transaction
+                        CustomerManager.TransactionList.add(newTransaction); // add transaction to transaction list
                         System.out.println("Booking confirmed");
                         System.out.println();
                     }
