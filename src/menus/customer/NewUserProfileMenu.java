@@ -24,7 +24,7 @@ public class NewUserProfileMenu {
         System.out.println("|–--------------------------------------------|");
         System.out.println("| Options:                                    |");
         System.out.println("|            1. Login with this account       |");
-        System.out.println("|            3. Back to menu                  |");
+        System.out.println("|            2. Back to menu                  |");
         System.out.println("|                                             |");
         System.out.println("===============================================");
     }
