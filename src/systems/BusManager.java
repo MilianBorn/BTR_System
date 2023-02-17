@@ -1,7 +1,8 @@
 package systems;
 import components.Bus;
 import components.Route;
-import components.Transaction;
+import components.transactions.Cancellation;
+import components.transactions.Transaction;
 import components.User;
 
 import java.time.LocalDate;
@@ -182,7 +183,7 @@ public class BusManager { // this class handles all tasks related to busses
 
             // create transactions of type cancellations for all affected user tickets
             for (User user : rmvBus.getPassengerList()) {
-                Transaction cancellation = new Transaction(user, rmvBus, false);
+                Transaction cancellation = new Cancellation(user, rmvBus);
                 CustomerManager.TransactionList.add(cancellation);
             }
 

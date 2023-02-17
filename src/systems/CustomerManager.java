@@ -2,7 +2,8 @@ package systems;
 
 import components.Bus;
 import components.Route;
-import components.Transaction;
+import components.transactions.Booking;
+import components.transactions.Transaction;
 import components.User;
 
 import java.time.LocalDate;
@@ -177,7 +178,7 @@ public class CustomerManager { // this class is used to for any logic needed to 
     public static void bookTicket(User user, Bus bus) {
         user.addTicket(bus); // add bus to user ticket list
         bus.addPassenger(user); // add passenger to bus
-        Transaction newTransaction = new Transaction(user, bus, true); // create new transaction
+        Transaction newTransaction = new Booking(user, bus); // create new transaction
         CustomerManager.TransactionList.add(newTransaction); // add transaction to transaction list
     }
 }

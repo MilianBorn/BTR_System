@@ -1,5 +1,5 @@
 package menus.vendor;
-import components.Transaction;
+import components.transactions.Transaction;
 import systems.CustomerManager;
 
 import java.time.format.FormatStyle;
@@ -21,7 +21,7 @@ public class TransactionOverviewMenu {
 
         // print all transactions
         for ( Transaction transaction : CustomerManager.TransactionList) {
-            System.out.printf("| Type:           %-37s|\n", transaction.getType());
+            System.out.printf("| Type:           %-37s|\n", transaction.toString());
             System.out.printf("| Date:           %-28s|\n", DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(transaction.getDate()));
             System.out.println("|                                             |");
             System.out.println("| User                                        |");

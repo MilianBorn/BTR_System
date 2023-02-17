@@ -2,7 +2,8 @@ package systems;
 
 import components.Bus;
 import components.Route;
-import components.Transaction;
+import components.transactions.Cancellation;
+import components.transactions.Transaction;
 import components.User;
 
 import java.util.ArrayList;
@@ -76,7 +77,7 @@ public class RouteManager { // this class is used to handle any tasks related to
 
                 // create transactions of type cancellations for all affected user tickets
                 for (User user : bus.getPassengerList()) {
-                    Transaction cancellation = new Transaction(user, bus, false);
+                    Transaction cancellation = new Cancellation(user, bus);
                     CustomerManager.TransactionList.add(cancellation);
                 }
             }

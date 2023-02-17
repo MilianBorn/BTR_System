@@ -1,7 +1,8 @@
 package systems.dataInjection;
 
 import components.Bus;
-import components.Transaction;
+import components.transactions.Booking;
+import components.transactions.Transaction;
 import components.User;
 import systems.BusManager;
 import systems.CustomerManager;
@@ -94,8 +95,8 @@ public class UserInjector {
             // update dependent lists (passenger and transaction)
             for (int n = 0; n < 2; n++) {
                 user_tickets.get(i).get(n).addPassenger(newUser); // user to passenger lists from user tickets
-                Transaction newTransaction = new Transaction(newUser, user_tickets.get(i).get(n), true); // create transaction
-                CustomerManager.TransactionList.add(newTransaction); // add to transaction list
+                Transaction booking = new Booking(newUser, user_tickets.get(i).get(n)); // create transaction
+                CustomerManager.TransactionList.add(booking); // add to transaction list
             }
         }
     }
